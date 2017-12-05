@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import {competences,progressionCategories} from './data.js'
+import {competences} from './data.js'
 
 console.log(competences);
 
