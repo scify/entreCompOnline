@@ -61,7 +61,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpg|gif|svg|ttf|eot|woff|woff2)$/,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
@@ -69,6 +69,14 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      Popper: ['popper.js', 'default'],
+    })
+  ],
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
