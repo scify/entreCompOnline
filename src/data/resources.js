@@ -207,7 +207,7 @@ export class Resources {
   static mapFinancialAndEconomicLiteracy() {
     return [
       new Skill(
-        1,
+        5,
         'Understand economic and financial concepts.',
         [
           new SkillLevel(1, 'I can recall basic terminology and symbols related to money.', Levels.level1),
@@ -221,7 +221,7 @@ export class Resources {
         ]
       ),
       new Skill(
-        2,
+        6,
         'Budget.',
         [
           new SkillLevel(1, 'I can judge what to use my money for.', Levels.level1),
@@ -236,7 +236,7 @@ export class Resources {
       )
       ,
       new Skill(
-        3,
+        7,
         'Find funding.',
         [
           new SkillLevel(1, 'I can identify the main types of income for families, businesses, nonprofit organisations and the state.', Levels.level1),
@@ -251,7 +251,7 @@ export class Resources {
       )
       ,
       new Skill(
-        4,
+        8,
         'Understand taxation.',
         [
           new SkillLevel(1, 'I can outline the purpose of taxation.', Levels.level1),
@@ -270,7 +270,7 @@ export class Resources {
   static mapMobilisingOthers() {
     return [
       new Skill(
-        1,
+        9,
         'Inspire and get inspired.',
         [
           new SkillLevel(1, 'I show enthusiasm for challenges.', Levels.level1),
@@ -284,7 +284,7 @@ export class Resources {
         ]
       ),
       new Skill(
-        2,
+        10,
         'Persuade.',
         [
           null,
@@ -299,7 +299,7 @@ export class Resources {
       )
       ,
       new Skill(
-        3,
+        11,
         ' Communicate effectively.',
         [
           new SkillLevel(1, 'I can communicate my ideas clearly to others.', Levels.level1),
@@ -314,7 +314,7 @@ export class Resources {
       )
       ,
       new Skill(
-        4,
+        12,
         'Use media effectively.',
         [
           new SkillLevel(1, 'I can provide examples of inspiring communication campaigns.', Levels.level1),

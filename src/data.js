@@ -92,7 +92,7 @@ const competenceArea2 =new CompetenceArea(2,
         "Make the most of limited resources",
         "Get and manage the competences needed at any stage, including technical, legal, tax and digital competences"
       ],
-      Resources.mapMobilisingOthers()
+      Resources.mapMobilisingResources()
 
     ),
     new Competence(
