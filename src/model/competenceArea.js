@@ -1,8 +1,7 @@
 export class CompetenceArea {
-  constructor(id, name, hint, descriptors) {
+  constructor(id, name,competences) {
     this.id = id;
     this.name = name;
-    this.hint = hint;
-    this.descriptors = descriptors;
+    this.competences = competences;
   }
 }

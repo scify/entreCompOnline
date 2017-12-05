@@ -1,8 +1,9 @@
 export class Competence {
-  constructor(id, name, hint, descriptors) {
+  constructor(id, name, hint, descriptors, skills) {
     this.id = id;
     this.name = name;
-    this.hind = hint;
+    this.hint = hint;
     this.descriptors = descriptors;
+    this.skills= skills;
   }
 }
