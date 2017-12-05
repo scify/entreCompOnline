@@ -2,6 +2,7 @@ import {CompetenceArea} from './model/competenceArea.js';
 import {Competence} from './model/competence.js';
 import {ProgressionCategory} from  './model/progressionCategory';
 import {ProgressionLevel} from  './model/progressionLevel';
+import {IdeasAndProperties} from "./data/ideasAndProperties";
 
 const level1 = new ProgressionLevel(1,
   "Under direct supervision",
@@ -71,7 +72,8 @@ const competenceArea1 =new CompetenceArea(
         "Identify and seize opportunities to create value by exploring the social, cultural and economic landscape",
         "Identify needs and challenges that need to be met",
         "Establish new connections and bring together scattered elements of the landscape to create opportunities to create value"
-      ]),
+      ],
+      IdeasAndProperties.skills),
     new Competence(
       2,
       "Creativity",
