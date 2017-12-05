@@ -2,6 +2,8 @@ import {CompetenceArea} from './model/competenceArea.js';
 import {Competence} from './model/competence.js';
 import {ProgressionCategory} from  './model/progressionCategory';
 import {ProgressionLevel} from  './model/progressionLevel';
+import {Skill} from './model/skill.js';
+import {Level} from './model/level.js';
 
 const level1 = new ProgressionLevel(1,
   "Under direct supervision",
