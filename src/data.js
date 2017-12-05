@@ -1,6 +1,7 @@
 import {CompetenceArea} from './model/competenceArea.js';
 import {Competence} from './model/competence.js';
 import {IdeasAndProperties} from "./data/ideasAndProperties";
+import {Resources} from "./data/resources.js";
 
 const competenceArea1 =new CompetenceArea(
   1,
@@ -69,6 +70,7 @@ const competenceArea2 =new CompetenceArea(2,
         "Identify and assess your individual and group strengths and weaknesses",
         "Believe in your ability to influence the course of events, despite uncertainty, setbacks and temporary failures"
       ],
+      Resources.mapSelfAwarenessAndSelfEfficacy()
     ),
     new Competence(
       7,
@@ -79,6 +81,7 @@ const competenceArea2 =new CompetenceArea(2,
         "Be prepared to be patient and keep trying to achieve your long-term individual or group aims",
         "Be resilient under pressure, adversity, and temporary failure"
       ],
+      Resources.mapMotivationandPerseverance()
     ),
     new Competence(
       8,
@@ -88,7 +91,9 @@ const competenceArea2 =new CompetenceArea(2,
         "Get and manage the material, non-material and digital resources needed to turn ideas into action",
         "Make the most of limited resources",
         "Get and manage the competences needed at any stage, including technical, legal, tax and digital competences"
-      ]
+      ],
+      Resources.mapMobilisingOthers()
+
     ),
     new Competence(
       9,
@@ -98,7 +103,8 @@ const competenceArea2 =new CompetenceArea(2,
         "Estimate the cost of turning an idea into a value-creating activity",
         "Plan, put in place and evaluate financial decisions over time",
         "Manage financing to make sure my value-creating activity can last over the long term"
-      ]
+      ],
+      Resources.mapFinancialAndEconomicLiteracy()
     ),
     new Competence(
       10,
@@ -108,7 +114,8 @@ const competenceArea2 =new CompetenceArea(2,
         "Inspire and enthuse relevant stakeholders",
         "Get the support needed to achieve valuable outcomes",
         "Demonstrate effective communication, persuasion, negotiation and leadership"
-      ]
+      ],
+      Resources.mapMobilisingOthers()
     )
   ]
 )
