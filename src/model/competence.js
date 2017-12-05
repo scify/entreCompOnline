@@ -1,4 +1,4 @@
-export default class Competence {
+export class Competence {
   constructor(id, name, hint, descriptors) {
     this.id = id;
     this.name = name;

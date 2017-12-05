@@ -1,14 +1,8 @@
-export default class ProgressionModelCategory {
-  constructor(id, name) {
+export class ProgressionModelCategory {
+  constructor(id, title, description, items) {
     this.id = id;
-    this.name = name;
+    this.title = title;
+    this.description = description;
+    this.items =items;
   }
 }
-
-export default class ProgressionModelCategoryItem {
-  constructor(id, name) {
-    this.id = id;
-    this.name = name;
-  }
-}
-

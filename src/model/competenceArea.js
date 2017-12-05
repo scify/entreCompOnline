@@ -1,4 +1,4 @@
-export default class CompetenceArea {
+export class CompetenceArea {
   constructor(id, name, hint, descriptors) {
     this.id = id;
     this.name = name;
