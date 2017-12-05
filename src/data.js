@@ -2,6 +2,7 @@ import {CompetenceArea} from './model/competenceArea.js';
 import {Competence} from './model/competence.js';
 import {IdeasAndProperties} from "./data/ideasAndProperties";
 import {Resources} from "./data/resources.js";
+import {IntoAction} from "./data/intoAction";
 
 const competenceArea1 =new CompetenceArea(
   1,
@@ -132,7 +133,8 @@ const competenceArea3 =new CompetenceArea(3,
         "Take up challenges",
         "Act and work independently to achieve goals, stick",
         "to intentions and carry out planned tasks"
-      ]
+      ],
+      IntoAction.mapTakingTheInitiative()
     ),
     new Competence(
       12,
@@ -142,7 +144,8 @@ const competenceArea3 =new CompetenceArea(3,
         "Set long-, medium- and short-term goals",
         "Define priorities and action plans",
         "Adapt to unforeseen changes"
-      ]
+      ],
+      IntoAction.mapPlanningAndManagement()
     ),
     new Competence(
       13,
@@ -152,7 +155,8 @@ const competenceArea3 =new CompetenceArea(3,
         "Make decisions when the result of that decision is uncertain, when the information available is partial or ambiguous, or when there is a risk of unintended outcomes",
         "Within the value-creating process, include structured ways of testing ideas and prototypes from the early stages, to reduce risks of failing",
         "Handle fast-moving situations promptly and flexibly"
-      ]
+      ],
+      IntoAction.mapCopyingwithUncertaintyAmbiguityAndRisk()
     ),
     new Competence(
       14,
@@ -162,7 +166,8 @@ const competenceArea3 =new CompetenceArea(3,
         "Work together and co-operate with others to develop ideas and turn them into action",
         "Network",
         "Solve conflicts and face up to competition positively when necessary"
-      ]
+      ],
+      IntoAction.mapWorkingWithOthers()
     ),
     new Competence(
       15,
@@ -172,7 +177,8 @@ const competenceArea3 =new CompetenceArea(3,
         "Use any initiative for value creation as a learning opportunity",
         "Learn with others, including peers and mentors",
         "Reflect and learn from both success and failure (your own and other people’s)"
-      ]
+      ],
+      IntoAction.mapLearnThroughExperience()
     )
   ]
 )
