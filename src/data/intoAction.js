@@ -168,36 +168,86 @@ export class IntoAction {
       new Skill(
         13,
         'Accept diversity (people’s differences).',
-        []
+        [
+          new SkillLevel(1, 'I can show respect for others, their background and situations.', Levels.level1),
+          new SkillLevel(2, 'I am open to the worth that others can bring to value creating activities.', Levels.level2),
+          new SkillLevel(3, 'I can combine different contributions to create value.', Levels.level3),
+          new SkillLevel(4, 'I can value diversity as a possible source of ideas and opportunities.', Levels.level4),
+          null,
+          new SkillLevel(6, 'I can support diversity within my team or organisation.', Levels.level6),
+          new SkillLevel(7, 'Outside of my organisation, I can find ideas that create value and make the most of them.', Levels.level7),
+          null,
+        ]
       ),
       new Skill(
         14,
         'Develop emotional intelligence.',
-        []
-      )
-      ,
+        [
+          new SkillLevel(1, 'I can show empathy towards others.', Levels.level1),
+          new SkillLevel(2, 'I can recognise the role of my emotions, attitudes and behaviours in shaping others people’s attitudes and behaviours and vice versa.', Levels.level2),
+          new SkillLevel(3, 'I can express my (or my team\'s) value creating ideas assertively.', Levels.level3),
+          new SkillLevel(4, 'I can face and solve conflicts.', Levels.level4),
+          new SkillLevel(5, 'I can compromise where necessary.', Levels.level5),
+          new SkillLevel(6, 'I can deal with non assertive behaviour that hinders my (or my team\'s) value creating activities (for example, destructive attitudes, aggressive behaviour and so on).', Levels.level6),
+          new SkillLevel(7, 'I can manage conflicts effectively.', Levels.level7),
+          null,
+        ]
+      ),
       new Skill(
         15,
         'Listen actively',
-        []
-      )
-      ,
+        [
+          new SkillLevel(1, 'I can show empathy towards others.', Levels.level1),
+          new SkillLevel(2, 'I can discuss the benefits of listening to other people’s ideas for achieving my (or my team\'s) goals.', Levels.level2),
+          new SkillLevel(3, 'I can listen to other people’s ideas for creating value without showing prejudice.', Levels.level3),
+          new SkillLevel(4, 'I can listen to my end users.', Levels.level4),
+          new SkillLevel(5, 'I can describe different techniques for managing relationships with end users.', Levels.level5),
+          new SkillLevel(6, 'I can put in place strategies to actively listen to my end users and act on their needs.', Levels.level6),
+          new SkillLevel(7, 'I can pull together information from a wide range of sources to understand my end users\' needs.', Levels.level7),
+          null,
+        ]
+      ),
       new Skill(
         16,
         'Team up',
-        []
-      )
-      ,
+        [
+          new SkillLevel(1, 'I am open to working alone as well as with others, playing different roles and taking some responsibility.', Levels.level1),
+          new SkillLevel(2, 'I am willing to change my way of working in a group.', Levels.level2),
+          new SkillLevel(3, 'I can work with a range of individuals and teams.', Levels.level3),
+          new SkillLevel(4, 'I share the ownership of value creating activities with the members of my team.', Levels.level4),
+          new SkillLevel(5, 'I can build a team based on the individual knowledge, skills and attitudes of each member.', Levels.level5),
+          new SkillLevel(6, 'I can contribute to creating value by teaming up with distributed communities through digital technologies.', Levels.level6),
+          new SkillLevel(7, 'I can design physical and virtual spaces that encourage team members to work together.', Levels.level7),
+          new SkillLevel(8, 'I can build an organisation’s capacity to create value by encouraging people to work together.', Levels.level8),
+        ]
+      ),
       new Skill(
         17,
         'Work together',
-        []
-      )
-      ,
+        [
+          new SkillLevel(1, 'I am open to involving others in my value creating activities.', Levels.level1),
+          new SkillLevel(2, 'I can contribute to simple value creating activities.', Levels.level2),
+          new SkillLevel(3, 'I can contribute to group decision making constructively.', Levels.level3),
+          new SkillLevel(4, 'I can create a team of people who can work together in a value creating activity.', Levels.level4),
+          new SkillLevel(5, 'I can use techniques and tools that help people to work together.', Levels.level5),
+          new SkillLevel(6, 'I can give people the help and support they need to perform at their best within a team.', Levels.level6),
+          new SkillLevel(7, 'I can work with a remote team of people who can independently contribute to a value creating activity.', Levels.level7),
+          new SkillLevel(8, 'I can design working methods and incentives that enable team members to work well together.', Levels.level8),
+        ]
+      ),
       new Skill(
         18,
         'Expand your network',
-        []
+        [
+          new SkillLevel(1, 'I can explain the meaning and forms of association, co-operation and peer to peer support (for example, family and other communities).', Levels.level1),
+          new SkillLevel(2, 'I am open to establishing new contacts and cooperation with others (individuals and groups).', Levels.level2),
+          new SkillLevel(3, 'I can use the relationships I have to get the support I need to turn ideas into action, including emotional support.', Levels.level3),
+          new SkillLevel(4, 'I can establish new relationships to get the support I need to turn ideas into action, including emotional support (for example, joining a mentor network).', Levels.level4),
+          new SkillLevel(5, 'I can use my network to find the right people to work on my (or my team\'s) value creating activity.', Levels.level5),
+          new SkillLevel(6, 'I proactively make contact with the right people inside and outside my organisation to support my (or my team\'s) value creating activity (for example, at conferences or on social media).', Levels.level6),
+          new SkillLevel(7, 'I can use my network to bring together different perspectives to inform my (or my team\'s) value creating process.', Levels.level7),
+          new SkillLevel(8, 'I can design effective processes to build networks of different or new stakeholders and keep them engaged.', Levels.level8),
+        ]
       )
     ]
   }
@@ -207,18 +257,44 @@ export class IntoAction {
       new Skill(
         19,
         'Reflect',
-        []
+        [
+          new SkillLevel(1, 'I can find examples of great failures that have created value.', Levels.level1),
+          new SkillLevel(2, 'I can provide examples of temporary failures that have led to valuable achievements.', Levels.level2),
+          new SkillLevel(3, 'I can reflect on failures (mine and other people’s), identify their causes and learn from them.', Levels.level3),
+          new SkillLevel(4, 'I can judge if and how I have achieved my goals, so that I can evaluate my performance and learn from it.', Levels.level4),
+          new SkillLevel(5, 'I can reflect on my (or my team\'s) achievements and temporary failures as things develop so as to learn and improve my ability to create value.', Levels.level5),
+          new SkillLevel(6, 'I can help others reflect on their achievements and temporary failures by providing honest and constructive feedback.', Levels.level6),
+          new SkillLevel(7, 'I can take my team or the organisation to a higher level of performance, based on the feedback collected and by learning lessons from achievements and failures.', Levels.level7),
+          null,
+        ]
       ),
       new Skill(
         20,
         'Learn to learn.',
-        []
-      )
-      ,
+        [
+          new SkillLevel(1, 'I can provide examples that show that my abilities and competence have increased with experience.', Levels.level1),
+          new SkillLevel(2, 'I can anticipate that my abilities and competence will grow with experience, through both successes and failures.', Levels.level2),
+          new SkillLevel(3, 'I can reflect on the relevance of my learning pathways for my future opportunities and choices.', Levels.level3),
+          new SkillLevel(4, 'I am always looking for opportunities to improve my strengths and reduce or compensate for my weaknesses.', Levels.level4),
+          new SkillLevel(5, 'I can find and choose opportunities to overcome my (or my team’s) weaknesses and to develop my (or my team’s) strengths.', Levels.level5),
+          new SkillLevel(6, 'I can help others develop their strengths and reduce or compensate for their weaknesses.', Levels.level6),
+          new SkillLevel(7, 'I can identify opportunities for self improvement in my organisation and beyond.', Levels.level7),
+          new SkillLevel(8, 'I can design and put in place a strategy for my venture to continue to generate value.', Levels.level8),
+        ]
+      ),
       new Skill(
         21,
         'Learn from experience',
-        []
+        [
+          new SkillLevel(1, 'I can recognise what I have learnt from taking part in value creating activities.', Levels.level1),
+          new SkillLevel(2, 'I can reflect on my experience in taking part in value creating activities and learn from it.', Levels.level2),
+          new SkillLevel(3, 'I can reflect on my interaction with others (including peers and mentors) and learn from it.', Levels.level3),
+          new SkillLevel(4, 'I can filter the feedback provided by others and keep the good from it.', Levels.level4),
+          new SkillLevel(5, 'I can integrate lifelong learning into my personal development strategy and career progress.', Levels.level5),
+          new SkillLevel(6, 'I can help others reflect on their interaction with other people and help them learn from this interaction.', Levels.level6),
+          new SkillLevel(7, 'I can learn from the impact monitoring and evaluation activities that I have designed to track the progress of my value creating activity.', Levels.level7),
+          new SkillLevel(8, 'I can learn lessons from monitoring and evaluation processes and establish them into my organisation’s learning processes.', Levels.level8),
+        ]
       )
     ]
   }
