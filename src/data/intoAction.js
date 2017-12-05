@@ -147,18 +147,45 @@ export class IntoAction {
       new Skill(
         10,
         'Cope with uncertainty and ambiguity.',
-        []
+        [
+          new SkillLevel(1, 'I am not afraid of making mistakes while trying new things.', Levels.level1),
+          new SkillLevel(2, 'I explore my own ways to achieve things.', Levels.level2),
+          new SkillLevel(3, 'I can discuss the role that information plays in reducing uncertainty, ambiguity and risk.', Levels.level3),
+          new SkillLevel(4, 'I can actively look for, compare and contrast different sources of information that help me reduce ambiguity, uncertainty, and risks in making decisions.', Levels.level4),
+          new SkillLevel(5, 'I can find ways of making decisions when the information is incomplete.', Levels.level5),
+          new SkillLevel(6, 'I can pull together different viewpoints to take informed decisions when the degree of uncertainty is high', Levels.level6),
+          new SkillLevel(7, 'I can make decisions evaluating the different elements in a situation that is uncertain and ambiguous.', Levels.level7),
+          new SkillLevel(8, 'I can set up appropriate strategies for collecting and monitoring data, which help me take decisions based on sound evidence.', Levels.level8)
+        ]
       ),
       new Skill(
         11,
         'Calculate risk',
-        []
+        [
+          new SkillLevel(1, 'I can identify examples of risks in my surroundings.', Levels.level1),
+          new SkillLevel(2, 'I can describe risks related to a simple value-creating activity in which I take part.', Levels.level2),
+          new SkillLevel(3, 'I can tell the difference between acceptable and unacceptable risks.', Levels.level3),
+          new SkillLevel(4, 'I can weigh up the risks and benefits of self-employment with alternative career options, and make choices that reflect my preferences.', Levels.level4),
+          new SkillLevel(5, 'I can apply the concept of affordable losses to make decisions when creating value.', Levels.level5),
+          new SkillLevel(6, 'I can compare value-creating activities based on a risk assessment.', Levels.level6),
+          new SkillLevel(7, 'I can assess the risks my venture is exposed to as conditions change.', Levels.level7),
+          new SkillLevel(8, 'I can evaluate high-risk long-term investments using a structured approach.', Levels.level8)
+        ]
       )
       ,
       new Skill(
         12,
         'Manage risk',
-        []
+        [
+          null,
+          null,
+          new SkillLevel(3, 'I can critically evaluate the risks associated with an idea that creates value, taking into account a variety of factors.', Levels.level3),
+          new SkillLevel(4, 'I can critically evaluate the risks related to the formal setup of a value-creating venture in the area in which I work.', Levels.level4),
+          new SkillLevel(5, 'I can demonstrate that I can make decisions by weighing up both the risks and the expected benefits of a value-creating activity.', Levels.level5),
+          new SkillLevel(6, 'I can outline a risk management plan for guiding my (or my team\'s) choices while developing my value-creating activity.', Levels.level6),
+          new SkillLevel(7, 'I can use strategies to reduce the risks that may arise during the value-creating process.', Levels.level7),
+          new SkillLevel(8, 'I can come up with strategies to reduce the risk of my value-creating initiative becoming obsolete.', Levels.level8)
+        ]
       )
     ]
   }
