@@ -61,15 +61,15 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-       enforce: "pre", //check source files, not modified by other loaders (like babel-loader)
-       test: /\.js$/,
-       exclude: /node_modules/,
-       loader: "eslint-loader",
-       options: {
-         //rules can be configured at .eslintrc.js file in this project
-
-       }
-       },
+        enforce: "pre", //check source files, not modified by other loaders (like babel-loader)
+        test: /\.js$/,
+        exclude: /node_modules|lib/,
+        loader: "eslint-loader",
+        options: {
+          //rules can be configured at .eslintrc.js file in this project
+          fix: true
+        }
+      },
       {
         test: /\.(png|jpg|gif|svg|ttf|eot|woff|woff2)$/,
         loader: 'file-loader',
