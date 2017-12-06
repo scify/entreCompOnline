@@ -13,29 +13,29 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'vue-style-loader',
-          'css-loader'
+          'vue-style-loader', //Similar to style-loader, you can chain it after css-loader to dynamically inject CSS into the document as style tag
+          'css-loader' // Takes the CSS file and returns the CSS with imports and url(...) resolved via webpack's require functionality:
         ],
       },
       {
         test: /\.scss$/,
         use: [
-          'vue-style-loader',
-          'css-loader',
+          'vue-style-loader', //Similar to style-loader, you can chain it after css-loader  dynamically inject CSS into the document as style tag
+          'css-loader', // Takes the CSS file and returns the CSS with imports and url(...) resolved via webpack's require functionality:
           'sass-loader'
         ],
       },
       {
         test: /\.sass$/,
         use: [
-          'vue-style-loader',
-          'css-loader',
+          'vue-style-loader', //Similar to style-loader, you can chain it after css-loader
+          'css-loader', // Takes the CSS file and returns the CSS with imports and url(...) resolved via webpack's require functionality:
           'sass-loader?indentedSyntax'
         ],
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
+        loader: 'vue-loader', //transforms Vue components into a plain JavaScript module:
         options: {
           loaders: {
             // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
