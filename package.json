@@ -1,8 +1,8 @@
 {
   "name": "entrepreneurship-competence",
-  "description": "A Vue.js project",
-  "version": "1.0.0",
-  "author": "Alexandros Tzoumas <alexandros.tzoumas@gmail.com>",
+  "description": "",
+  "version": "0.0.1",
+  "author": "SciFY",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -28,6 +28,7 @@
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "eslint": "^4.12.1",
+    "eslint-loader": "^1.9.0",
     "file-loader": "^1.1.4",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",

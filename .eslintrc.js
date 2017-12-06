@@ -7,8 +7,9 @@ module.exports = {
     "parserOptions": {
         "sourceType": "module"
     },
+    // https://eslint.org/docs/rules/
     "rules": {
         "linebreak-style": ["error","unix"],
-        "no-console":"off"
+       "no-console":"off"
     }
 };
