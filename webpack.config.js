@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: './src/main.js',
@@ -12,37 +13,37 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          'vue-style-loader', //Similar to style-loader, you can chain it after css-loader to dynamically inject CSS into the document as style tag
-          'css-loader' // Takes the CSS file and returns the CSS with imports and url(...) resolved via webpack's require functionality:
-        ],
+        use: ExtractTextPlugin.extract({
+          fallback: "vue-style-loader", //Similar to style-loader, you can chain it after css-loader to dynamically inject CSS into the document as style tag
+          use: "css-loader" // Takes the CSS file and returns the CSS with imports and url(...) resolved via webpack's require functionality:
+        })
       },
       {
         test: /\.scss$/,
-        use: [
-          'vue-style-loader', //Similar to style-loader, you can chain it after css-loader  dynamically inject CSS into the document as style tag
-          'css-loader', // Takes the CSS file and returns the CSS with imports and url(...) resolved via webpack's require functionality:
-          'sass-loader'
-        ],
+        use: ExtractTextPlugin.extract({
+          fallback: "vue-style-loader", //Similar to style-loader, you can chain it after css-loader to dynamically inject CSS into the document as style tag
+          use: ['css-loader', // Takes the CSS file and returns the CSS with imports and url(...) resolved via webpack's require functionality:
+            'sass-loader']
+        })
       },
       {
         test: /\.sass$/,
-        use: [
-          'vue-style-loader', //Similar to style-loader, you can chain it after css-loader
-          'css-loader', // Takes the CSS file and returns the CSS with imports and url(...) resolved via webpack's require functionality:
-          'sass-loader?indentedSyntax'
-        ],
+        use: ExtractTextPlugin.extract({
+          fallback: "vue-style-loader", //Similar to style-loader, you can chain it after css-loader to dynamically inject CSS into the document as style tag
+          use: ['css-loader', // Takes the CSS file and returns the CSS with imports and url(...) resolved via webpack's require functionality:
+            'sass-loader?indentedSyntax']
+        })
       },
       {
         test: /\.vue$/,
+        // Rule.loader is a shortcut to Rule.use: [ { loader } ]
         loader: 'vue-loader', //transforms Vue components into a plain JavaScript module:
         options: {
           loaders: {
             // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
             // the "scss" and "sass" values for the lang attribute to the right configs here.
             // other preprocessors should work out of the box, no loader config like this necessary.
-            'scss': [
-              'vue-style-loader',
+            'scss': ['vue-style-loader',
               'css-loader',
               'sass-loader'
             ],
@@ -61,15 +62,16 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-       enforce: "pre", //check source files, not modified by other loaders (like babel-loader)
-       test: /\.js$/,
-       exclude: /node_modules/,
-       loader: "eslint-loader",
-       options: {
-         //rules can be configured at .eslintrc.js file in this project
+        test: /\.js$/,
+        // All loaders are sorted in the order pre, inline, normal, post and used in this order.
+        enforce: "pre", //check source files, not modified by other loaders (like babel-loader)
+        exclude: /node_modules/,
+        loader: "eslint-loader",
+        options: {
+          //rules can be configured at .eslintrc.js file in this project
 
-       }
-       },
+        }
+      },
       {
         test: /\.(png|jpg|gif|svg|ttf|eot|woff|woff2)$/,
         loader: 'file-loader',
@@ -84,8 +86,9 @@ module.exports = {
       $: 'jquery',
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
-      Popper: ['popper.js', 'default'],
-    })
+      Popper: ['popper.js', 'default']
+    }),
+    new ExtractTextPlugin("/styles.css?[hash]")
   ],
   resolve: {
     alias: {
