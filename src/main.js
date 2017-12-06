@@ -4,7 +4,7 @@ import 'bootstrap-sass';
 import "../scss/common.scss";
 import {competences} from './data.js'
 
-console.log(competences);
+console.log(competences)
 
 new Vue({
   el: '#app',
