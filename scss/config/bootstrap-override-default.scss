@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import "colors";
+
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+$brand-primary: $blue;
+$font-family-sans-serif:  "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$body-bg: lighten($light-blue, 25%);
+
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
