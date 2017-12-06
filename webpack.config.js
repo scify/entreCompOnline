@@ -1,7 +1,9 @@
 var path = require('path')
 var webpack = require('webpack')
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
+//on development disable ExtractTextPlugin that puts all .css to a file.
+// we want it disabled so it can fall back to vue-style-loader and css-loader where Hot Mode replacement works
+const disableExtractTextPlugin = process.env.NODE_ENV !== 'production';
 module.exports = {
   entry: './src/main.js',
   output: {
@@ -74,7 +76,10 @@ module.exports = {
       'window.jQuery': 'jquery',
       Popper: ['popper.js', 'default']
     }),
-    new ExtractTextPlugin("/styles.css?[hash]")
+    new ExtractTextPlugin({
+      disable:true,
+      filename:"/styles.css?[hash]"
+      })
   ],
   resolve: {
     alias: {
