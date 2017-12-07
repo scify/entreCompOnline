@@ -29,18 +29,18 @@ function customColorDecorator(opts, props, vars) {
 
 function formatCompetenciesToGroups() {
   let competenceAreasGroups = []
-  let competencesGroups = []
   for (let i = 0; i < competences.length; i++) { // competence areas
+    let competencesGroups = []
     for (let j = 0; j < competences[i].competences.length; j++) { // competences
       let skillsGroups = []
-      for (let k = 0; k < competences[i].competences[j].skills.length; k++) { // skills
-        skillsGroups.push({label: competences[i].competences[j].skills[k].name, gcolor: colorsForAreas[i]})
-      }
+      // for (let k = 0; k < competences[i].competences[j].skills.length; k++) { // skills
+      //   skillsGroups.push({label: competences[i].competences[j].skills[k].name, gcolor: colorsForAreas[i]})
+      // }
       competencesGroups.push({label: competences[i].competences[j].name, gcolor: colorsForAreas[i], groups: skillsGroups})
     }
     competenceAreasGroups.push({label: competences[i].name, gcolor: colorsForAreas[i], groups: competencesGroups})
   }
-  return competencesGroups
+  return competenceAreasGroups
 }
 
 // initialize chart
@@ -57,14 +57,16 @@ let circles = new window.CarrotSearchCircles({
   radialTextureStep: 50,
   angularTextureStep: 15,
   groupFontFamily: 'sans-serif',
-  groupMinFontSize: '20%',
-  groupMaxFontSize: '20%',
   rolloutAnimation: 'tumble',
   visibleGroupCount: 0, // display all groups
   titleBar: 'inscribed',
   titleBarTextColor: "#000",
   titleBarMinFontSize: 18,
   titleBarMaxFontSize: 18,
+  onBeforeZoom: function () {
+    // disable zoom
+    return false
+  }
 })
 
 // event handlers
