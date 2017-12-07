@@ -1,3 +1,21 @@
 @import "config/bootstrap-override-default";
 
-//body {background-color:yellow;}
+.section{
+  padding: 50px;
+  padding-top: 35px;
+  h3{
+    margin-top:0;
+  }
+}
+#intro{
+  h1 {margin-top:0;}
+  color:white;
+  font-size:20px;
+  background-image: linear-gradient(to bottom,$blue 0,$light-blue 100%)
+}
+#chart-container{
+  background-image: linear-gradient(to bottom,$light-blue 0,white 100%)
+}
+#how-to{
+
+}
