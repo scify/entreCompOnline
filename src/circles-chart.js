@@ -19,7 +19,7 @@ function getRGBAString(hex, alpha) {
   let red = parseInt(result[1], 16)
   let green =  parseInt(result[2], 16)
   let blue =  parseInt(result[3], 16)
-  return 'rgba(' + red + ', ' + green + ', ' + blue + ', ' + alpha + ')'
+  return `rgba(${red}, ${green}, ${blue}, ${alpha})`
 }
 
 function customColorDecorator(opts, props, vars) {
@@ -34,11 +34,11 @@ function formatCompetenciesToGroups() {
     for (let j = 0; j < competences[i].competences.length; j++) { // competences
       let skillsGroups = []
       // for (let k = 0; k < competences[i].competences[j].skills.length; k++) { // skills
-      //   skillsGroups.push({label: competences[i].competences[j].skills[k].name, gcolor: colorsForAreas[i]})
+      //   skillsGroups.push({id: competences[i].competences[j].skills[k].id, type: 'skill', label: competences[i].competences[j].skills[k].name, gcolor: colorsForAreas[i]})
       // }
-      competencesGroups.push({label: competences[i].competences[j].name, gcolor: colorsForAreas[i], groups: skillsGroups})
+      competencesGroups.push({id: competences[i].competences[j].id, type: 'competence', label: competences[i].competences[j].name, gcolor: colorsForAreas[i], groups: skillsGroups})
     }
-    competenceAreasGroups.push({label: competences[i].name, gcolor: colorsForAreas[i], groups: competencesGroups})
+    competenceAreasGroups.push({id: competences[i].id, type: 'competence_area', label: competences[i].name, gcolor: colorsForAreas[i], groups: competencesGroups})
   }
   return competenceAreasGroups
 }
@@ -66,6 +66,11 @@ let circles = new window.CarrotSearchCircles({
   onBeforeZoom: function () {
     // disable zoom
     return false
+  },
+  onGroupClick: function (info) {
+    // TODO: display correct modal with cards
+    alert(`You clicked the group entitled '${info.group.label}' (id: ${info.group.id}, type: ${info.group.type})`)
+    console.log('Info: ', info)
   }
 })
 
