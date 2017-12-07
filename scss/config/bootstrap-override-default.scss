@@ -14,7 +14,7 @@ $navbar-default-border:transparent;
 
 $font-size-base:16px;
 
-@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
 #about{
   background-color:lighten($light-blue, 25%);

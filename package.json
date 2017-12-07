@@ -10,6 +10,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "@material/card": "^0.25.0",
     "bootstrap-sass": "^3.3.7",
     "jquery": "^3.2.1",
     "popper": "^1.0.1",

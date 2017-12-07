@@ -1,13 +1,13 @@
 import Vue from 'vue'
-import App from './App.vue'
 import 'bootstrap-sass'
 import {competences} from './data'
 import '../scss/common.scss'
 import './circles-chart.js'
+import CompetencesGrid from './CompetencesGrid.vue'
 
 console.log(competences)
 
 new Vue({
-  el: '#app',
-  render: h => h(App)
+  el: '#competences-container',
+  render: h => h(CompetencesGrid)
 })
