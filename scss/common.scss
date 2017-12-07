@@ -1,13 +1,14 @@
 @import "config/bootstrap-override-default";
 
 .section{
-  padding: 50px;
+  padding-bottom: 50px;
   padding-top: 35px;
   h3{
     margin-top:0;
   }
 }
 #intro{
+  .section {padding-bottom:15px;}
   h1 {margin-top:0;}
   color:white;
   font-size:20px;
