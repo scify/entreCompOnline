@@ -5,11 +5,14 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 // we want it disabled so it can fall back to vue-style-loader and css-loader where Hot Mode replacement works
 const disableExtractTextPlugin = process.env.NODE_ENV !== 'production';
 module.exports = {
-  entry: './src/main.js',
+  entry: {
+    index:'./src/index.js',
+    skills:'./src/skills.js'
+  },
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'build.js'
+    filename: '[name].js'
   },
   module: {
     rules: [
@@ -77,8 +80,8 @@ module.exports = {
       Popper: ['popper.js', 'default']
     }),
     new ExtractTextPlugin({
-      disable:true,
-      filename:"/styles.css?[hash]"
+      disable:disableExtractTextPlugin,
+      filename:"/[name].css?[hash]"
       })
   ],
   resolve: {

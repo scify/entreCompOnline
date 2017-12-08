@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import 'bootstrap-sass'
 import {competences} from './data'
-import '../scss/common.scss'
+import '../scss/index.scss'
 import './circles-chart.js'
 import CompetencesGrid from './CompetencesGrid.vue'
 
