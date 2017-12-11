@@ -37,15 +37,15 @@
 </template>
 
 <script>
-  import {competencesAreas} from './data/competenceAreas.js'
+  import {competenceAreas} from './data/competenceAreas.js'
   import _ from 'lodash';
 
   export default {
     data () {
       return {
         selectedAreaId: 1,
-        competencesAreas: competencesAreas,
-        filteredCompetencesAreas: competencesAreas
+        competencesAreas: competenceAreas,
+        filteredCompetencesAreas: competenceAreas
       }
     },
     methods: {
