@@ -1,9 +1,11 @@
 import {competenceAreas} from './data/competenceAreas.js'
 import '../lib/circles-chart/carrotsearch.circles.js'
+import  styles from '../scss/config/colors.scss'
 
+console.log(styles);
 // configuration constant variables
 const alphas = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7]
-const colorsForAreas = ['#0000ff', '#ff0000', '#00ff00']
+const colorsForAreas = [styles.ideasAndOpportunitiesColor, styles.resourcesColor, styles.introActionColor]
 const groupSelectionOutlineColor = '#30415d' // $blue
 const groupSelectionColor = getRGBAString('#000000', 0.15)
 
@@ -23,8 +25,10 @@ function getRGBAString(hex, alpha) {
 }
 
 function customColorDecorator(opts, props, vars) {
+  console.log(props);
+  console.log(vars);
   vars.groupColor = getRGBAString(props.group.gcolor, (props.level === 0) ? 0.7 : alphas[props.index])
-  vars.labelColor = '#000'
+  vars.labelColor = styles.chartFontColor
 }
 
 function formatCompetenciesToGroups() {

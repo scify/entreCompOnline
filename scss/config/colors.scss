@@ -2,3 +2,14 @@ $crimson: #cf6766;
 $blue: #30415d;
 $dark-blue: #031424;
 $light-blue: #8eaebd;
+
+$resourcesColor:#ff0000;
+$introActionColor: #00ff00;
+$ideasAndOpportunitiesColor:#0000ff;
+$chartFontColor:#000;
+:export {
+  resourcesColor:$resourcesColor;
+  introActionColor: $introActionColor;
+  ideasAndOpportunitiesColor:$ideasAndOpportunitiesColor;
+  chartFontColor:$chartFontColor;
+}

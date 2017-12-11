@@ -6,6 +6,6 @@ import CompetencesGrid from './CompetencesGrid.vue'
 
 
 new Vue({
-  el: '#competenceAreas-container',
+  el: '#competence-container',
   render: h => h(CompetencesGrid)
 })
