@@ -1,7 +1,7 @@
 // import Vue from 'vue'
 import 'bootstrap-sass'
-//import {competences} from './data'
+//import {competencesAreas} from './data/competenceAreas.js'
 //import 'material-components-web'
 //import '../scss/skills.scss'
 
-//console.log(competences)
+//console.log(competencesAreas)

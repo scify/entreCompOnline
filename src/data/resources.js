@@ -54,8 +54,8 @@ export class Resources {
         [
           new SkillLevel(1, 'I can list different types of jobs and their key functions.', Levels.level1),
           new SkillLevel(2, 'I can describe which qualities and abilities are needed for different jobs, and which of these qualities and abilities I have.', Levels.level2),
-          new SkillLevel(3, 'I can describe my skills and competences relating to career options, including selfemployment.', Levels.level3),
-          new SkillLevel(4, 'I can use my skills and competences to change my career path, as a result of new opportunities or from necessity.', Levels.level4),
+          new SkillLevel(3, 'I can describe my skills and competenceAreas relating to career options, including selfemployment.', Levels.level3),
+          new SkillLevel(4, 'I can use my skills and competenceAreas to change my career path, as a result of new opportunities or from necessity.', Levels.level4),
           new SkillLevel(5, 'I can discuss how a realistic understanding and evaluation of my personal attitudes, skills and knowledge can influence my decision-making, relationships with other people and quality of life.', Levels.level5),
           new SkillLevel(6, 'I can choose professional development opportunities with my team and organisation based on a clear understanding our strengths and weaknesses.', Levels.level6),
           new SkillLevel(7, 'I can design professional development strategies for my team and organisation based on a clear understanding our strengths and weaknesses, in relation to both current and future opportunities to create value.', Levels.level7),

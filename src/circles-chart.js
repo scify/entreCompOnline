@@ -1,4 +1,4 @@
-import {competences} from './data'
+import {competenceAreas} from './data/competenceAreas.js'
 import '../lib/circles-chart/carrotsearch.circles.js'
 
 // configuration constant variables
@@ -29,16 +29,16 @@ function customColorDecorator(opts, props, vars) {
 
 function formatCompetenciesToGroups() {
   let competenceAreasGroups = []
-  for (let i = 0; i < competences.length; i++) { // competence areas
+  for (let i = 0; i < competenceAreas.length; i++) { // competence areas
     let competencesGroups = []
-    for (let j = 0; j < competences[i].competences.length; j++) { // competences
+    for (let j = 0; j < competenceAreas[i].competences.length; j++) { // competenceAreas
       let skillsGroups = []
-      // for (let k = 0; k < competences[i].competences[j].skills.length; k++) { // skills
-      //   skillsGroups.push({id: competences[i].competences[j].skills[k].id, type: 'skill', label: competences[i].competences[j].skills[k].name, gcolor: colorsForAreas[i]})
+      // for (let k = 0; k < competenceAreas[i].competenceAreas[j].skills.length; k++) { // skills
+      //   skillsGroups.push({id: competenceAreas[i].competenceAreas[j].skills[k].id, type: 'skill', label: competenceAreas[i].competenceAreas[j].skills[k].name, gcolor: colorsForAreas[i]})
       // }
-      competencesGroups.push({id: competences[i].competences[j].id, type: 'competence', label: competences[i].competences[j].name, gcolor: colorsForAreas[i], groups: skillsGroups})
+      competencesGroups.push({id: competenceAreas[i].competences[j].id, type: 'competence', label: competenceAreas[i].competences[j].name, gcolor: colorsForAreas[i], groups: skillsGroups})
     }
-    competenceAreasGroups.push({id: competences[i].id, type: 'competence_area', label: competences[i].name, gcolor: colorsForAreas[i], groups: competencesGroups})
+    competenceAreasGroups.push({id: competenceAreas[i].id, type: 'competence_area', label: competenceAreas[i].name, gcolor: colorsForAreas[i], groups: competencesGroups})
   }
   return competenceAreasGroups
 }

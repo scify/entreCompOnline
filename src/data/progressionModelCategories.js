@@ -43,7 +43,7 @@ export const level7 = new ProgressionLevel(7,
     "Taking responsibility for contributing to complex developments in a specific field.",
     "Expand",
     7,
-    "Level 7 focuses on the competences needed to deal with complex challenges, handling a constantly changing environment where the degree of uncertainty is high."
+    "Level 7 focuses on the competenceAreas needed to deal with complex challenges, handling a constantly changing environment where the degree of uncertainty is high."
 );
 export const level8 = new ProgressionLevel(8,
     "Contributing substantially to the development of a specific field.",

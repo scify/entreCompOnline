@@ -71,7 +71,7 @@ export class IdeasAndProperties {
         [
           new SkillLevel(1, 'I can show that I am curious about new things.', Levels.level1),
           new SkillLevel(2, 'I can explore new ways to make use of existing resources.', Levels.level2),
-          new SkillLevel(3, 'I can experiment with my skills and competences in situations that are new to me.', Levels.level3),
+          new SkillLevel(3, 'I can experiment with my skills and competenceAreas in situations that are new to me.', Levels.level3),
           new SkillLevel(4, 'I can actively search for new solutions that meet my needs.', Levels.level4),
           new SkillLevel(5, 'I can actively search for new solutions that improve the value creating process.', Levels.level5),
           new SkillLevel(6, 'I can combine my understanding of different contexts to transfer knowledge, ideas and solutions across different areas.', Levels.level6),

@@ -1,8 +1,8 @@
-import {CompetenceArea} from './model/competenceArea.js';
-import {Competence} from './model/competence.js';
-import {IdeasAndProperties} from "./data/ideasAndProperties";
-import {Resources} from "./data/resources.js";
-import {IntoAction} from "./data/intoAction";
+import {CompetenceArea} from '../model/competenceArea.js';
+import {Competence} from '../model/competence.js';
+import {IdeasAndProperties} from "./ideasAndProperties";
+import {Resources} from "./resources.js";
+import {IntoAction} from "./intoAction";
 
 const competenceArea1 =new CompetenceArea(
   1,
@@ -97,7 +97,7 @@ const competenceArea2 =new CompetenceArea(2,
       [
         "Get and manage the material, non-material and digital resources needed to turn ideas into action",
         "Make the most of limited resources",
-        "Get and manage the competences needed at any stage, including technical, legal, tax and digital competences"
+        "Get and manage the competenceAreas needed at any stage, including technical, legal, tax and digital competenceAreas"
       ],
       Resources.mapMobilisingResources()
 
@@ -189,5 +189,5 @@ const competenceArea3 =new CompetenceArea(3,
   ]
 )
 
-export const competences = [competenceArea1,competenceArea2,competenceArea3];
+export const competenceAreas = [competenceArea1,competenceArea2,competenceArea3];
 
