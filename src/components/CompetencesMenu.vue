@@ -10,8 +10,6 @@
           <i class="mdc-list-item__start-detail material-icons" aria-hidden="true">fiber_manual_record</i>
           {{comp.name}}
 
-
-
         </li>
       </ul>
       <hr class="mdc-list-divider">
@@ -44,6 +42,12 @@
     created(){
       let urlInfo = this.findCompetenceFromUrl()
       this.selectedCompetence = urlInfo.competence;
+
+      eventBus.$on("competence-changed", (comp) => {
+          this.selectedCompetence = comp;
+        }
+      );
+
     }
   }
 </script>

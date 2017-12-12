@@ -16,15 +16,20 @@
         <li v-for="skill in competence.skills">{{skill.name}}</li>
       </ul>
     </main>
+    <comp-footer v-bind:competence="competence" v-bind:competence-area="competenceArea"></comp-footer>
   </div>
 </template>
 
 <script>
   import eventBus from '../eventBus/eventBus.js'
   import extractCompetencesFromUrlMixin from '../mixIns/extractCompetencesFromUrlMixin.js'
+  import footer from './CompetencesFooter.vue'
 
   export default {
     mixins: [extractCompetencesFromUrlMixin],
+    components: {
+      "comp-footer": footer
+    },
     data () {
       return {
         competence: null,
@@ -32,11 +37,14 @@
       }
     },
     methods: {
-      clickMenu(){
+      clickMenu()
+      {
         eventBus.$emit('toggle-menu');
       }
-    },
-    created() {
+    }
+    ,
+    created()
+    {
       let urlInfo = this.findCompetenceFromUrl();
       this.competence = urlInfo.competence;
       this.competenceArea = urlInfo.competenceArea;
