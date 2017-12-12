@@ -1,6 +1,6 @@
 <template>
   <div id="competence-breakdown">
-    <header class="mdc-toolbar mdc-elevation--z4">
+    <header class="mdc-toolbar mdc-elevation--z4" :class="'comp-area-'+competenceArea.id">
       <div class="mdc-toolbar__row">
         <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
           <button @click="clickMenu()" class="demo-menu material-icons mdc-toolbar__menu-icon">menu</button>
@@ -21,11 +21,14 @@
 
 <script>
   import eventBus from '../eventBus/eventBus.js'
+  import extractCompetencesFromUrlMixin from '../mixIns/extractCompetencesFromUrlMixin.js'
 
   export default {
+    mixins: [extractCompetencesFromUrlMixin],
     data () {
       return {
-        competence: null
+        competence: null,
+        competenceArea: null
       }
     },
     methods: {
@@ -34,16 +37,31 @@
       }
     },
     created() {
+      let urlInfo = this.findCompetenceFromUrl();
+      this.competence = urlInfo.competence;
+      this.competenceArea = urlInfo.competenceArea;
 
       eventBus.$on("competence-changed", (comp) => {
           this.competence = comp;
-          console.log(comp);
+          this.competenceArea = this.findCompetenceAreaByCompetence(comp);
         }
       );
     }
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+  @import "../../scss/config/colors";
 
+  .comp-area-1 {
+    background-color: $dark-blue;
+  }
+
+  .comp-area-2 {
+    background-color: $crimson;
+  }
+
+  .comp-area-3 {
+    background-color: $blue;
+  }
 </style>

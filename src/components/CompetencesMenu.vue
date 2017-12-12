@@ -11,6 +11,7 @@
           {{comp.name}}
 
 
+
         </li>
       </ul>
       <hr class="mdc-list-divider">
@@ -23,8 +24,10 @@
   import UrlSearchParams from 'url-search-params'
   import _ from 'lodash';
   import eventBus from '../eventBus/eventBus.js'
+  import extractCompetencesFromUrlMixin from '../mixIns/extractCompetencesFromUrlMixin.js'
 
   export default {
+    mixins: [extractCompetencesFromUrlMixin],
     data () {
       return {
         selectedCompetence: null,
@@ -32,18 +35,6 @@
       }
     },
     methods: {
-      findCompetenceFromUrl(){
-        let competenceId = parseInt(new URLSearchParams(window.location.hash).get("#competence"));
-        let vm = this;
-        this.competencesAreas.forEach(area => {
-          let competence = area.getCompetence(competenceId);
-          if (competence) {
-            vm.selectedCompetence = competence;
-            eventBus.$emit("competence-changed", competence);
-            //emit event here
-          }
-        })
-      },
       selectCompetence(comp){
         this.selectedCompetence = comp;
         eventBus.$emit("competence-changed", comp);
@@ -51,7 +42,8 @@
       }
     },
     created(){
-      this.findCompetenceFromUrl()
+      let urlInfo = this.findCompetenceFromUrl()
+      this.selectedCompetence = urlInfo.competence;
     }
   }
 </script>
@@ -79,5 +71,6 @@
   .comp-area-3 .active .mdc-list-item__start-detail {
     color: $blue;
   }
+
 
 </style>
