@@ -190,4 +190,3 @@ const competenceArea3 =new CompetenceArea(3,
 )
 
 export const competenceAreas = [competenceArea1,competenceArea2,competenceArea3];
-

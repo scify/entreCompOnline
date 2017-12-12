@@ -27,7 +27,7 @@
               {{comp.hint}}
            </section>
             <section class="mdc-card__actions">
-              <a class="mdc-button mdc-button--compact mdc-card__action">VIEW {{comp.skills.length}} SKILLS</a>
+              <a class="mdc-button mdc-button--compact mdc-card__action" v-bind:href="'skills.html#competence='+comp.id">VIEW {{comp.skills.length}} SKILLS</a>
             </section>
           </div>
         </div>
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-  import {competenceAreas} from './data/competenceAreas.js'
+  import {competenceAreas} from '../data/competenceAreas.js'
   import _ from 'lodash';
 
   export default {
@@ -67,8 +67,8 @@
 </script>
 
 <style lang="scss">
-  @import "../scss/config/colors";
-
+  @import "../../scss/config/colors";
+  @import "../../node_modules/material-components-web/dist/material-components-web.css";
   .mdc-card {
     border-radius: 5px;
     height: 160px;

@@ -1,2 +1,7 @@
-@import "common";
 @import "~material-components-web/dist/material-components-web.css";
+
+.mdc-persistent-drawer--open,.mdc-persistent-drawer__drawer {
+  width: 350px;
+  overflow-y:scroll;
+  overflow-x: hidden;
+}
