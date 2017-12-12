@@ -11,9 +11,10 @@ export default {
       if (competenceId) {
         for (let area  of competenceAreas) {
           competence = area.getCompetence(competenceId);
-          if (competence)
+          if (competence) {
             competenceArea = area;
-          break;
+            break;
+          }
         }
       }
       else { //if no url provided select first
