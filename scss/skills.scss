@@ -1,5 +1,35 @@
 @import "~material-components-web/dist/material-components-web.css";
 
+/* Ensure layout covers the entire screen. */
+html {
+  height: 100%;
+}
+
+
+/* Place drawer and content side by side. */
+.competence-body {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+/* Stack toolbar and main on top of each other. */
+#competence-breakdown {
+  display: inline-flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.competence-main {
+  padding-left: 16px;
+}
+
 .mdc-persistent-drawer--open,.mdc-persistent-drawer__drawer {
   width: 350px;
   overflow-y:scroll;

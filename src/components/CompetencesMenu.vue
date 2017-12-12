@@ -35,7 +35,7 @@
         let competenceId = parseInt(new URLSearchParams(window.location.hash).get("#competence"));
         let vm = this;
         this.competencesAreas.forEach(area => {
-          let competence = _.find(area.competences, c => c.id == competenceId);
+          let competence = area.getCompetence(competenceId);
           if (competence) {
             vm.selectedCompetence = competence;
             //emit event here
