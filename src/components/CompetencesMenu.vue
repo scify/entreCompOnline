@@ -22,6 +22,7 @@
   import {competenceAreas} from '../data/competenceAreas.js'
   import UrlSearchParams from 'url-search-params'
   import _ from 'lodash';
+  import eventBus from '../eventBus/eventBus.js'
 
   export default {
     data () {
@@ -38,13 +39,14 @@
           let competence = area.getCompetence(competenceId);
           if (competence) {
             vm.selectedCompetence = competence;
+            eventBus.$emit("competence-changed", competence);
             //emit event here
           }
         })
       },
       selectCompetence(comp){
         this.selectedCompetence = comp;
-        //emit event here
+        eventBus.$emit("competence-changed", comp);
         //todo: url should be updated too
       }
     },
