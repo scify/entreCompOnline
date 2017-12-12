@@ -9,8 +9,12 @@
       </div>
     </header>
     <main class="competence-main">
-      <h1 class="mdc-typography--display1">Title</h1>
-      <p class="mdc-typography--body1">content</p>
+      <h1 class="mdc-typography--display1">{{competence.hint}}</h1>
+      <p v-for="descr in competence.descriptors" class="mdc-typography--body1">{{descr}}</p>
+
+      <ul class="mdc-typography--body2">
+        <li v-for="skill in competence.skills">{{skill.name}}</li>
+      </ul>
     </main>
   </div>
 </template>
@@ -30,7 +34,12 @@
       }
     },
     created() {
-      eventBus.$on("competence-changed", (comp)=> this.competence =comp);
+
+      eventBus.$on("competence-changed", (comp) => {
+          this.competence = comp;
+          console.log(comp);
+        }
+      );
     }
   }
 </script>
