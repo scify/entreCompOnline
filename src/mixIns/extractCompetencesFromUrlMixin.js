@@ -4,15 +4,23 @@ import URLSearchParams from 'url-search-params'
 export default {
   methods: {
     findCompetenceFromUrl(){
-      let competenceId = parseInt(new URLSearchParams(window.location.hash).get("#competence"));
       let competence = null;
       let competenceArea = null;
-      for (let area  of competenceAreas) {
-        competence = area.getCompetence(competenceId);
-        if (competence)
-          competenceArea = area;
-        break;
+      let competenceId = parseInt(new URLSearchParams(window.location.hash).get("#competence"));
+
+      if (competenceId) {
+        for (let area  of competenceAreas) {
+          competence = area.getCompetence(competenceId);
+          if (competence)
+            competenceArea = area;
+          break;
+        }
       }
+      else { //if no url provided select first
+        competenceArea = competenceAreas[0];
+        competence = competenceArea.competences[0];
+      }
+
       return {
         competence,
         competenceArea
