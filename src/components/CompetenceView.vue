@@ -1,6 +1,6 @@
 <template>
-  <div id="competence-breakdown">
-    <header class="mdc-toolbar mdc-elevation--z4" :class="'comp-area-'+competenceArea.id">
+  <div id="competence-breakdown" :class="{['comp-area-'+competenceArea.id]:true, open:menuIsOpened}">
+    <header class="mdc-toolbar mdc-elevation--z4 bg">
       <div class="mdc-toolbar__row">
         <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
           <button @click="clickMenu()" class="demo-menu material-icons mdc-toolbar__menu-icon">menu</button>
@@ -9,12 +9,21 @@
       </div>
     </header>
     <main class="competence-main">
-      <h1 class="mdc-typography--display1">{{competence.hint}}</h1>
-      <p v-for="descr in competence.descriptors" class="mdc-typography--body1">{{descr}}</p>
+      <h1 class="mdc-typography--display1 color ">{{competence.name}}</h1>
+      <h2 class="mdc-typography--title ">{{competence.hint}}</h2>
 
-      <ul class="mdc-typography--body2">
-        <li v-for="skill in competence.skills">{{skill.name}}</li>
-      </ul>
+
+      <div class="chapter-toc bl-color">
+        <h1>Required skills </h1>
+        <ul>
+          <li class="color" v-for="skill in competence.skills">{{skill.name}}</li>
+        </ul>
+      </div>
+
+      Mastering these skills gives you the ability to:
+      <p v-for="descr in competence.descriptors" class="mdc-typography--body1"> {{descr}}</p>
+
+
     </main>
     <comp-footer v-bind:competence="competence" v-bind:competence-area="competenceArea"></comp-footer>
   </div>
@@ -33,12 +42,14 @@
     data () {
       return {
         competence: null,
-        competenceArea: null
+        competenceArea: null,
+        menuIsOpened:true
       }
     },
     methods: {
       clickMenu()
       {
+        this.menuIsOpened = !this.menuIsOpened;
         eventBus.$emit('toggle-menu');
       }
     }
@@ -61,19 +72,80 @@
 <style lang="scss" scoped>
   @import "../../scss/config/colors";
 
-.mdc-toolbar__title{
-  font-weight:400;
-}
+  .mdc-toolbar__row
+  {
+    min-height:56px;
+  }
+  .chapter-toc {
+    border-left: 5px solid;
+    padding-left: 20px;
+    margin-top:40px;
+    margin-bottom:50px;
+  }
+
+  .chapter-toc h1 {
+    margin:0;
+    font-size: 15px;
+    line-height: 16px;
+    padding-bottom: 12px;
+    font-weight: 400;
+    color: #757575;
+  }
+
+  .chapter-toc ul {
+    list-style: none;
+    margin-top: 0;
+    padding-left: 0;
+  }
+
+   .chapter-toc li {
+    font-size: 20px;
+    line-height: 40px;
+  }
+
+  .mdc-toolbar__title {
+    font-weight: 400;
+  }
+
+  .mdc-typography--title {
+    font-weight: 400;
+  }
 
   .comp-area-1 {
-    background-color: $dark-blue;
+    .bg {
+      background-color: $dark-blue;
+    }
+    .color {
+      color: $dark-blue;
+    }
+    .bl-color {
+      border-left-color: $dark-blue;
+    }
+
   }
 
   .comp-area-2 {
-    background-color: $crimson;
+    .bg {
+      background-color: $crimson;
+    }
+    .color {
+      color: $crimson;
+    }
+    .bl-color {
+      border-left-color: $crimson;
+    }
   }
 
   .comp-area-3 {
-    background-color: $blue;
+    .bg {
+      background-color: $blue;
+    }
+    .color {
+      color: $blue;
+    }
+    .bl-color {
+      border-left-color: $blue;
+    }
+
   }
 </style>

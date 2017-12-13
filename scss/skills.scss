@@ -26,7 +26,11 @@ html {
 }
 
 .competence-main {
-  padding-left: 16px;
+  padding-left: 80px;
+  padding-top:80px;
+  padding-bottom:80px;
+  flex: 1;
+  max-width:1100px;
 }
 .mdc-persistent-drawer a
 {
@@ -34,7 +38,8 @@ html {
 }
 
 .mdc-persistent-drawer--open, .mdc-persistent-drawer__drawer {
-  width: 350px;
+  min-width: 350px;
+
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -43,6 +48,3 @@ html {
   min-height: 100vh; //100% of the height of the viewport
 }
 
-main {
-  flex: 1;
-}

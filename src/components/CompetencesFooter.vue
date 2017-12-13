@@ -1,5 +1,5 @@
 <template>
-  <footer :class="'comp-area-'+competenceArea.id">
+  <footer class="bg">
     <div class="footer-column">
       <a v-if="previousCompetence" class="footer-text" href="javascript:void(0)"
          @click="selectCompetence(previousCompetence)">
@@ -54,7 +54,7 @@
 
 <style lang="scss">
   footer {
-    height: 96px;
+    min-height: 96px;
     display: flex;
     justify-content: space-between;
     -webkit-font-smoothing: antialiased;
