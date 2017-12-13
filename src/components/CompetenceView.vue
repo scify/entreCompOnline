@@ -12,11 +12,7 @@
       <h1 class="mdc-typography--display1 color ">{{competence.name}}</h1>
       <h2 class="mdc-typography--title ">{{competence.hint}}</h2>
 
-      <div style="color:#757575;" class="mdc-typography--body1">
-        Mastering these skills gives you the ability to:<br>
-        <span v-for="(descr,index) in competence.descriptors"
-              class="mdc-typography--body1"> {{index + 1}}) {{descr}}</span>
-      </div>
+
 
       <div class="skills bl-color">
         <h1>Required skills </h1>
@@ -25,9 +21,17 @@
         </ul>
       </div>
 
+      <div style="color:#757575;" class="mdc-typography--body1">
+        Mastering these skills gives you the ability to:<br>
+        <div v-for="(descr,index) in competence.descriptors"
+              class="mdc-typography--body1"> {{index + 1}}) {{descr}}</div>
+      </div>
+
       <a id="assess-tool" href="javascript:void(0)" class="mdc-button mdc-button--unelevated mdc-ripple-upgraded">
         Assess your skills
        </a>
+
+
       <aside id="mdc-dialog"
              class="mdc-dialog"
              role="alertdialog"
@@ -113,6 +117,9 @@
 <style lang="scss" scoped>
   @import "../../scss/config/colors";
 
+  #assess-tool {
+    margin-top:40px;
+  }
   .mdc-toolbar__row {
     min-height: 56px;
   }
