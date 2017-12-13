@@ -6,13 +6,20 @@
           <button @click="clickMenu()" class="demo-menu material-icons mdc-toolbar__menu-icon">menu</button>
           <span class="mdc-toolbar__title catalog-title">{{competence.name}}</span>
         </section>
+
+        <section class="mdc-toolbar__section mdc-toolbar__section--align-end" role="toolbar">
+          <a href="/index.html" class="material-icons mdc-toolbar__icon" aria-label="Download" alt="Home">home</a>
+        </section>
+
+
       </div>
     </header>
     <main class="competence-main">
       <h1 class="mdc-typography--display1 color ">{{competence.name}}</h1>
       <h2 class="mdc-typography--title ">{{competence.hint}}</h2>
 
-      <div class="mdc-layout-grid">
+
+      <div class="mdc-layout-grid skills-container">
         <div class="mdc-layout-grid__inner">
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
             <div class="skills bl-color">
@@ -21,10 +28,11 @@
                 <li class="color" v-for="skill in competence.skills">{{skill.name}}</li>
               </ul>
             </div>
-
-            <a href="javascript:void(0)" class="mdc-button mdc-button--unelevated mdc-ripple-upgraded" >
-             Assess your self
-            </a>
+            <div style="color:#757575;" class="mdc-typography--body1">
+              Mastering these skills gives you the ability to:<br>
+              <div v-for="(descr,index) in competence.descriptors"
+                   class="mdc-typography--body1"> {{index + 1}}) {{descr}}</div>
+            </div>
           </div>
           <div id="competences-chart-container" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6"></div>
         </div>
@@ -53,6 +61,9 @@
         </div>
         <div class="mdc-dialog__backdrop"></div>
       </aside>
+      <a id="assess-tool" href="javascript:void(0)" class="mdc-button mdc-button--unelevated mdc-ripple-upgraded" >
+        Assess your self
+       </a>
 
     </main>
     <comp-footer v-bind:competence="competence" v-bind:competence-area="competenceArea"></comp-footer>
@@ -117,6 +128,9 @@
 <style lang="scss" scoped>
   @import "../../scss/config/colors";
 
+  .skills-container{
+    padding:0;
+  }
   #assess-tool {
     margin-top:40px;
   }
