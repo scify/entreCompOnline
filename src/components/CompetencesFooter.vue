@@ -61,10 +61,10 @@
     align-items: center;
     font-weight: 500;
 
-    .competence-name{
-      white-space:nowrap;
+    .competence-name {
+      white-space: nowrap;
     }
-    .arrow{
+    .arrow {
       padding-top: 23px;
       width: 24px;
     }
@@ -74,19 +74,24 @@
         float: left;
         margin-right: 10px;
       }
+      @media screen and (max-width: 800px) {
+       .competence-name,.direction{display:none;}
+        margin-left: 35px;
+      }
     }
-
     .footer-column:last-child {
       margin-right: 76px;
-      .competence-name{
+      .competence-name {
         margin-right: 35px;
       }
-      .arrow{
+      .arrow {
         float: right;
         margin-left: 10px;
       }
+      @media screen and (max-width: 800px) {
+        margin-right: 35px;
+      }
     }
-
     .screen-reader {
       position: absolute;
       left: -10000px;
@@ -95,7 +100,6 @@
       height: 1px;
       overflow: hidden;
     }
-
     .direction {
       font-size: 15px;
       color: rgba(255, 255, 255, .55);
@@ -107,5 +111,7 @@
       text-decoration: none;
       font-size: 20px;
     }
+
+
   }
 </style>
