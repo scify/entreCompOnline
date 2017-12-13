@@ -1,8 +1,58 @@
 import {competenceAreas} from './data/competenceAreas.js'
 import '../lib/circles-chart/carrotsearch.circles.js'
-import  styles from '../scss/config/colors.scss'
+import styles from '../scss/config/colors.scss'
 
+export default class CirclesChart {
+  constructor(container) {
+    this.container = container
+    this.chart = null
+  }
+  drawChart() {
+    // initialize chart
+    this.chart = new window.CarrotSearchCircles({
+      id: this.container,
+      groupColorDecorator: customColorDecorator,
+      dataObject: {
+        groups: formatCompetenciesToGroups()
+      },
+      ringScaling: 1,
+      groupOutlineColor: "#fff",
+      groupSelectionOutlineColor: groupSelectionOutlineColor,
+      groupSelectionColor: groupSelectionColor,
+      noTexturingCurvature: 0,
+      radialTextureStep: 50,
+      angularTextureStep: 15,
+      groupFontFamily: 'sans-serif',
+      rolloutAnimation: 'tumble',
+      visibleGroupCount: 0, // display all groups
+      titleBar: 'inscribed',
+      titleBarTextColor: "#000",
+      titleBarMinFontSize: 18,
+      titleBarMaxFontSize: 18,
+      onBeforeZoom: function () {
+        // disable zoom
+        return false
+      },
+      onGroupClick: function (info) {
+        //  alert(`You clicked the group entitled '${info.group.label}' (id: ${info.group.id}, type: ${info.group.type})`)
+        if (info.group.type==="competence")
+          window.location.href = "skills.html#competence="+info.group.id;
+      }
+    })
 
+    // event handlers
+    window.addEventListener("resize", function() {
+      // on window resize, resize circles chart as well
+      this.chart.resize()
+    })
+  }
+
+  select(id, type) {
+    // console.log(`${id} is selected`)
+    this.chart.set('selection', {all: true, selected: false})
+    this.chart.set('selection', type + '_' + id)
+  }
+}
 // configuration constant variables
 //const alphas = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7]
 const colorsForAreas = [styles.ideasAndOpportunitiesColor, styles.resourcesColor, styles.introActionColor]
@@ -38,47 +88,9 @@ function formatCompetenciesToGroups() {
       // for (let k = 0; k < competenceAreas[i].competenceAreas[j].skills.length; k++) { // skills
       //   skillsGroups.push({id: competenceAreas[i].competenceAreas[j].skills[k].id, type: 'skill', label: competenceAreas[i].competenceAreas[j].skills[k].name, gcolor: colorsForAreas[i]})
       // }
-      competencesGroups.push({id: competenceAreas[i].competences[j].id, type: 'competence', label: competenceAreas[i].competences[j].name, gcolor: colorsForAreas[i], groups: skillsGroups})
+      competencesGroups.push({id: 'competence_' + competenceAreas[i].competences[j].id, type: 'competence', label: competenceAreas[i].competences[j].name, gcolor: colorsForAreas[i], groups: skillsGroups})
     }
-    competenceAreasGroups.push({id: competenceAreas[i].id, type: 'competence_area', label: competenceAreas[i].name, gcolor: colorsForAreas[i], groups: competencesGroups})
+    competenceAreasGroups.push({id: 'competence_area_' + competenceAreas[i].id, type: 'competence_area', label: competenceAreas[i].name, gcolor: colorsForAreas[i], groups: competencesGroups})
   }
   return competenceAreasGroups
 }
-
-// initialize chart
-let circles = new window.CarrotSearchCircles({
-  id: 'chart',
-  groupColorDecorator: customColorDecorator,
-  dataObject: {
-    groups: formatCompetenciesToGroups()
-  },
-  ringScaling: 1,
-  groupOutlineColor:"#fff",
-  groupSelectionOutlineColor: groupSelectionOutlineColor,
-  groupSelectionColor: groupSelectionColor,
-  noTexturingCurvature: 0,
-  radialTextureStep: 50,
-  angularTextureStep: 15,
-  groupFontFamily: 'sans-serif',
-  rolloutAnimation: 'tumble',
-  visibleGroupCount: 0, // display all groups
-  titleBar: 'inscribed',
-  titleBarTextColor: "#000",
-  titleBarMinFontSize: 18,
-  titleBarMaxFontSize: 18,
-  onBeforeZoom: function () {
-    // disable zoom
-    return false
-  },
-  onGroupClick: function (info) {
-  //  alert(`You clicked the group entitled '${info.group.label}' (id: ${info.group.id}, type: ${info.group.type})`)
-    if (info.group.type==="competence")
-      window.location.href = "skills.html#competence="+info.group.id;
-  }
-})
-
-// event handlers
-window.addEventListener("resize", function() {
-  // on window resize, resize circles chart as well
-  circles.resize()
-})

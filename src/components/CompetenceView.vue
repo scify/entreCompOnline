@@ -17,16 +17,23 @@
         <span v-for="(descr,index) in competence.descriptors"  class="mdc-typography--body1"> {{index+1}}) {{descr}}</span>
       </div>
 
-      <div class="skills bl-color">
-        <h1>Required skills </h1>
-        <ul>
-          <li class="color" v-for="skill in competence.skills">{{skill.name}}</li>
-        </ul>
-      </div>
+      <div class="mdc-layout-grid">
+        <div class="mdc-layout-grid__inner">
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+            <div class="skills bl-color">
+              <h1>Required skills </h1>
+              <ul>
+                <li class="color" v-for="skill in competence.skills">{{skill.name}}</li>
+              </ul>
+            </div>
 
-      <a href="javascript:void(0)" class="mdc-button mdc-button--unelevated mdc-ripple-upgraded" >
-       Assess your self
-      </a>
+            <a href="javascript:void(0)" class="mdc-button mdc-button--unelevated mdc-ripple-upgraded" >
+             Assess your self
+            </a>
+          </div>
+          <div id="competences-chart-container" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6"></div>
+        </div>
+      </div>
 
 
     </main>
@@ -38,6 +45,9 @@
   import eventBus from '../eventBus/eventBus.js'
   import extractCompetencesFromUrlMixin from '../mixIns/extractCompetencesFromUrlMixin.js'
   import footer from './CompetencesFooter.vue'
+  import CirclesChart from '../circles-chart.js'
+
+  let circlesChart = new CirclesChart('competences-chart-container');
 
   export default {
     mixins: [extractCompetencesFromUrlMixin],
@@ -59,8 +69,9 @@
       }
     },
     mounted(){
-        console.log("view is mounted");
-        //configure circles.js here.
+      console.log("view is mounted");
+      circlesChart.drawChart();
+      circlesChart.select(this.competence.id, 'competence'); // select only competences and not areas
     },
     created()
     {
@@ -71,6 +82,7 @@
       eventBus.$on("competence-changed", (comp) => {
           this.competence = comp;
           this.competenceArea = this.findCompetenceAreaByCompetence(comp);
+          circlesChart.select(comp.id, 'competence'); // select only competences and not areas
         }
       );
     }
