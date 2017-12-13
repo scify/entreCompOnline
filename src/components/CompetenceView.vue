@@ -12,16 +12,21 @@
       <h1 class="mdc-typography--display1 color ">{{competence.name}}</h1>
       <h2 class="mdc-typography--title ">{{competence.hint}}</h2>
 
+      <div style="color:#757575;" class="mdc-typography--body1">
+        Mastering these skills gives you the ability to:<br>
+        <span v-for="(descr,index) in competence.descriptors"  class="mdc-typography--body1"> {{index+1}}) {{descr}}</span>
+      </div>
 
-      <div class="chapter-toc bl-color">
+      <div class="skills bl-color">
         <h1>Required skills </h1>
         <ul>
           <li class="color" v-for="skill in competence.skills">{{skill.name}}</li>
         </ul>
       </div>
 
-      Mastering these skills gives you the ability to:
-      <p v-for="descr in competence.descriptors" class="mdc-typography--body1"> {{descr}}</p>
+      <a href="javascript:void(0)" class="mdc-button mdc-button--unelevated mdc-ripple-upgraded" >
+       Assess your self
+      </a>
 
 
     </main>
@@ -43,7 +48,7 @@
       return {
         competence: null,
         competenceArea: null,
-        menuIsOpened:true
+        menuIsOpened: true
       }
     },
     methods: {
@@ -72,35 +77,35 @@
 <style lang="scss" scoped>
   @import "../../scss/config/colors";
 
-  .mdc-toolbar__row
-  {
-    min-height:56px;
+  .mdc-toolbar__row {
+    min-height: 56px;
   }
-  .chapter-toc {
+
+  .skills {
     border-left: 5px solid;
     padding-left: 20px;
-    margin-top:40px;
-    margin-bottom:50px;
-  }
+    margin-top: 40px;
+    margin-bottom: 50px;
 
-  .chapter-toc h1 {
-    margin:0;
-    font-size: 15px;
-    line-height: 16px;
-    padding-bottom: 12px;
-    font-weight: 400;
-    color: #757575;
-  }
+    h1 {
+      margin: 0;
+      font-size: 15px;
+      line-height: 16px;
+      padding-bottom: 12px;
+      font-weight: 400;
+      color: #757575;
+    }
 
-  .chapter-toc ul {
-    list-style: none;
-    margin-top: 0;
-    padding-left: 0;
-  }
+    ul {
+      list-style: none;
+      margin-top: 0;
+      padding-left: 0;
+    }
 
-   .chapter-toc li {
-    font-size: 20px;
-    line-height: 40px;
+    li {
+      font-size: 20px;
+      line-height: 40px;
+    }
   }
 
   .mdc-toolbar__title {
