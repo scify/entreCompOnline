@@ -8,7 +8,7 @@
             :class="{active: comp.id == (selectedCompetence? selectedCompetence.id:-1) }"
             @click="selectCompetence(comp)">
           <i class="mdc-list-item__start-detail material-icons" aria-hidden="true">fiber_manual_record</i>
-          {{comp.name}}
+          <span>{{comp.name}}</span>
 
         </li>
       </ul>
@@ -58,22 +58,34 @@
   .mdc-list-group__subheader {
     padding: 0 16px;
     color: gray;
+
+  }
+
+  .mdc-list-item span {
+    max-width: 260px;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   .mdc-list-item {
     font-size: 1rem;
+    font-weight: 400;
   }
 
-  .comp-area-1 .active .mdc-list-item__start-detail {
+  .comp-area-1 .active, .comp-area-1 .active .mdc-list-item__start-detail {
     color: $dark-blue;
+
   }
 
-  .comp-area-2 .active .mdc-list-item__start-detail {
+  .comp-area-2 .active, .comp-area-2 .active .mdc-list-item__start-detail {
     color: $crimson;
   }
 
-  .comp-area-3 .active .mdc-list-item__start-detail {
+  .comp-area-3 .active, .comp-area-3 .active .mdc-list-item__start-detail {
     color: $blue;
+    font-weight:500;
   }
 
 

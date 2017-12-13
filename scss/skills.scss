@@ -5,7 +5,6 @@ html {
   height: 100%;
 }
 
-
 /* Place drawer and content side by side. */
 .competence-body {
   display: flex;
@@ -29,9 +28,21 @@ html {
 .competence-main {
   padding-left: 16px;
 }
+.mdc-persistent-drawer a
+{
+  text-decoration: none;
+}
 
-.mdc-persistent-drawer--open,.mdc-persistent-drawer__drawer {
+.mdc-persistent-drawer--open, .mdc-persistent-drawer__drawer {
   width: 350px;
-  overflow-y:scroll;
+  overflow-y: scroll;
   overflow-x: hidden;
+}
+
+.competences-nav {
+  min-height: 100vh; //100% of the height of the viewport
+}
+
+main {
+  flex: 1;
 }

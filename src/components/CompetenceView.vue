@@ -61,6 +61,10 @@
 <style lang="scss" scoped>
   @import "../../scss/config/colors";
 
+.mdc-toolbar__title{
+  font-weight:400;
+}
+
   .comp-area-1 {
     background-color: $dark-blue;
   }
