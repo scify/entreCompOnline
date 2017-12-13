@@ -2,7 +2,7 @@ import {competenceAreas} from './data/competenceAreas.js'
 import '../lib/circles-chart/carrotsearch.circles.js'
 import  styles from '../scss/config/colors.scss'
 
-console.log(styles);
+
 // configuration constant variables
 //const alphas = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7]
 const colorsForAreas = [styles.ideasAndOpportunitiesColor, styles.resourcesColor, styles.introActionColor]
@@ -25,8 +25,6 @@ function getRGBAString(hex, alpha) {
 }
 
 function customColorDecorator(opts, props, vars) {
-  console.log(props);
-  console.log(vars);
   vars.groupColor = getRGBAString(props.group.gcolor, (props.level === 0) ? 0.8 : 1);
   vars.labelColor = "#fff";//styles.chartFontColor
 }
@@ -72,11 +70,11 @@ let circles = new window.CarrotSearchCircles({
     // disable zoom
     return false
   },
-  //onGroupClick: function (info) {
-    // TODO: display correct modal with cards
+  onGroupClick: function (info) {
   //  alert(`You clicked the group entitled '${info.group.label}' (id: ${info.group.id}, type: ${info.group.type})`)
-  //  console.log('Info: ', info)
- // }
+    if (info.group.type==="competence")
+      window.location.href = "skills.html#competence="+info.group.id;
+  }
 })
 
 // event handlers

@@ -57,8 +57,11 @@
         this.menuIsOpened = !this.menuIsOpened;
         eventBus.$emit('toggle-menu');
       }
-    }
-    ,
+    },
+    mounted(){
+        console.log("view is mounted");
+        //configure circles.js here.
+    },
     created()
     {
       let urlInfo = this.findCompetenceFromUrl();
