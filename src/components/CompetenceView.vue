@@ -14,7 +14,8 @@
 
       <div style="color:#757575;" class="mdc-typography--body1">
         Mastering these skills gives you the ability to:<br>
-        <span v-for="(descr,index) in competence.descriptors"  class="mdc-typography--body1"> {{index+1}}) {{descr}}</span>
+        <span v-for="(descr,index) in competence.descriptors"
+              class="mdc-typography--body1"> {{index + 1}}) {{descr}}</span>
       </div>
 
       <div class="skills bl-color">
@@ -24,9 +25,32 @@
         </ul>
       </div>
 
-      <a href="javascript:void(0)" class="mdc-button mdc-button--unelevated mdc-ripple-upgraded" >
-       Assess your self
-      </a>
+      <a id="assess-tool" href="javascript:void(0)" class="mdc-button mdc-button--unelevated mdc-ripple-upgraded">
+        Assess your skills
+       </a>
+      <aside id="mdc-dialog"
+             class="mdc-dialog"
+             role="alertdialog"
+             aria-labelledby="mdc-dialog-with-list-label"
+             aria-describedby="mdc-dialog-with-list-description">
+        <div class="mdc-dialog__surface">
+          <header class="mdc-dialog__header">
+            <h2 id="mdc-dialog-default-label" class="mdc-dialog__header__title">
+              Coming Soon!
+            </h2>
+          </header>
+          <section id="mdc-dialog-default-description" class="mdc-dialog__body">
+            Thanks for your patience.
+          </section>
+          <footer class="mdc-dialog__footer">
+            <button type="button"
+                    class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel mdc-ripple-upgraded"
+                    style="--mdc-ripple-fg-size:53.03999633789062px; --mdc-ripple-fg-scale:1.9881081289759257;">Close
+            </button>
+          </footer>
+        </div>
+        <div class="mdc-dialog__backdrop"></div>
+      </aside>
 
 
     </main>
@@ -37,7 +61,9 @@
 <script>
   import eventBus from '../eventBus/eventBus.js'
   import extractCompetencesFromUrlMixin from '../mixIns/extractCompetencesFromUrlMixin.js'
-  import footer from './CompetencesFooter.vue'
+  import footer from './CompetencesFooter.vue';
+  import {MDCDialog} from '@material/dialog';
+
 
   export default {
     mixins: [extractCompetencesFromUrlMixin],
@@ -59,8 +85,15 @@
       }
     },
     mounted(){
-        console.log("view is mounted");
-        //configure circles.js here.
+      console.log("view is mounted");
+      //configure circles.js here.
+
+      const dialog = new MDCDialog(document.querySelector('#mdc-dialog'));
+      document.querySelector('#assess-tool').addEventListener('click', function (evt) {
+        dialog.lastFocusedTarget = evt.target;
+        dialog.show();
+      });
+
     },
     created()
     {
