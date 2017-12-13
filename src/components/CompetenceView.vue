@@ -33,6 +33,9 @@
               <div v-for="(descr,index) in competence.descriptors"
                    class="mdc-typography--body1"> {{index + 1}}) {{descr}}</div>
             </div>
+            <a id="assess-tool" href="javascript:void(0)" class="mdc-button mdc-button--unelevated mdc-ripple-upgraded" >
+              Assess your self
+             </a>
           </div>
           <div id="competences-chart-container" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6"></div>
         </div>
@@ -61,9 +64,7 @@
         </div>
         <div class="mdc-dialog__backdrop"></div>
       </aside>
-      <a id="assess-tool" href="javascript:void(0)" class="mdc-button mdc-button--unelevated mdc-ripple-upgraded" >
-        Assess your self
-       </a>
+
 
     </main>
     <comp-footer v-bind:competence="competence" v-bind:competence-area="competenceArea"></comp-footer>
@@ -141,8 +142,8 @@
   .skills {
     border-left: 5px solid;
     padding-left: 20px;
-    margin-top: 40px;
-    margin-bottom: 50px;
+    margin-top: 20px;
+    margin-bottom: 30px;
 
     h1 {
       margin: 0;
