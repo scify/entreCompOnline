@@ -4,7 +4,7 @@ import  styles from '../scss/config/colors.scss'
 
 console.log(styles);
 // configuration constant variables
-const alphas = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7]
+//const alphas = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7]
 const colorsForAreas = [styles.ideasAndOpportunitiesColor, styles.resourcesColor, styles.introActionColor]
 const groupSelectionOutlineColor = '#30415d' // $blue
 const groupSelectionColor = getRGBAString('#000000', 0.15)
@@ -27,8 +27,8 @@ function getRGBAString(hex, alpha) {
 function customColorDecorator(opts, props, vars) {
   console.log(props);
   console.log(vars);
-  vars.groupColor = getRGBAString(props.group.gcolor, (props.level === 0) ? 0.7 : alphas[props.index])
-  vars.labelColor = styles.chartFontColor
+  vars.groupColor = getRGBAString(props.group.gcolor, (props.level === 0) ? 0.8 : 1);
+  vars.labelColor = "#fff";//styles.chartFontColor
 }
 
 function formatCompetenciesToGroups() {
@@ -55,6 +55,7 @@ let circles = new window.CarrotSearchCircles({
     groups: formatCompetenciesToGroups()
   },
   ringScaling: 1,
+  groupOutlineColor:"#fff",
   groupSelectionOutlineColor: groupSelectionOutlineColor,
   groupSelectionColor: groupSelectionColor,
   noTexturingCurvature: 0,
@@ -71,11 +72,11 @@ let circles = new window.CarrotSearchCircles({
     // disable zoom
     return false
   },
-  onGroupClick: function (info) {
+  //onGroupClick: function (info) {
     // TODO: display correct modal with cards
-    alert(`You clicked the group entitled '${info.group.label}' (id: ${info.group.id}, type: ${info.group.type})`)
-    console.log('Info: ', info)
-  }
+  //  alert(`You clicked the group entitled '${info.group.label}' (id: ${info.group.id}, type: ${info.group.type})`)
+  //  console.log('Info: ', info)
+ // }
 })
 
 // event handlers

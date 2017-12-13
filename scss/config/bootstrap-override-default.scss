@@ -7,7 +7,7 @@ $link-color: darken($crimson, 10%);
 $font-family-sans-serif:  "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $body-bg: white;
 
-$navbar-default-link-color:white;
+$navbar-default-link-color:black;
 $navbar-height:70px;
 $navbar-default-bg:transparent;
 $navbar-default-border:transparent;
@@ -16,9 +16,3 @@ $font-size-base:16px;
 
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
-#about{
-  background-color:lighten($light-blue, 25%);
-}
-#intro {
-  background-color:lighten($light-blue, 25%);
-}
