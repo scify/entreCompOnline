@@ -7,9 +7,9 @@
           <span class="mdc-toolbar__title catalog-title">{{competence.name}}</span>
         </section>
 
-        <section class="mdc-toolbar__section mdc-toolbar__section--align-end" role="toolbar">
-          <a href="/index.html" class="material-icons mdc-toolbar__icon" aria-label="Download" alt="Home">home</a>
-        </section>
+    <!--    <section class="mdc-toolbar__section mdc-toolbar__section&#45;&#45;align-end" role="toolbar">
+          <a href="/index.html" class="material-icons mdc-toolbar__icon" aria-label="Home" alt="Home">home</a>
+        </section>-->
 
 
       </div>
@@ -34,7 +34,7 @@
                    class="mdc-typography--body1"> {{index + 1}}) {{descr}}</div>
             </div>
             <a id="assess-tool" href="javascript:void(0)" class="mdc-button mdc-button--unelevated mdc-ripple-upgraded" >
-              Assess your self
+              Assess yourself
              </a>
           </div>
           <div id="competences-chart-container" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6"></div>
