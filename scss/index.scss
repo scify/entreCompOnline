@@ -1,34 +1,77 @@
 @import "config/colors";
+
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 $brand-primary: $blue;
-$link-color: darken($crimson, 10%);
-$font-family-sans-serif:  Roboto, sans-serif;
+$link-color: white;
+$font-family-sans-serif: Roboto, sans-serif;
 $body-bg: white;
 
-$navbar-default-link-color:black;
-$navbar-height:70px;
-$navbar-default-bg:transparent;
-$navbar-default-border:transparent;
+$navbar-default-link-color: black;
+$navbar-height: 70px;
+$navbar-default-bg: transparent;
+$navbar-default-border: transparent;
 
-$font-size-base:16px;
+$font-size-base: 16px;
 
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
-.navbar{
-  margin-bottom:0;
+.navbar {
+  margin-bottom: 0;
 }
 
-.section{
-  padding-bottom: 50px;
-  padding-top: 35px;
-  h3{
-    margin-top:0;
+.section {
+
+  padding-top: 50px;
+  padding-bottom: 70px;
+  h3 {
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
+  .subtitle {
+    margin-bottom: 70px;
+    font-size:18px;
+  }
+  h3.with-subtitle {
+    margin-bottom: 20px;
   }
 }
-#intro{
-  .section {padding-bottom:15px;}
-  h1 {margin-top:0;}
-  height:500px;
-  background-color:gray;
+
+#how-to {
+  background-color: lighten($blue, 62%);
+  .section{
+    padding-bottom:110px;
+  }
+}
+
+#competences {
+  background-color: lighten($crimson, 40%);
+}
+
+#intro {
+  .section {
+    padding-bottom: 15px;
+  }
+  h1 {
+    margin-top: 0;
+  }
+  height: 500px;
+  background-color: gray;
+}
+
+#roadmap {
+
+  background-color: lighten($blue, 20%);
+  height: 400px;
+  color: white;
+  font-size: 18px;
+}
+
+footer {
+  padding: 15px;
+  background-color: #031424;
+  color: white;
+  a {
+    color: white;
+  }
 }
 
