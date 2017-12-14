@@ -22,26 +22,44 @@
 <script>
   import _ from 'lodash';
   import eventBus from '../eventBus/eventBus.js'
+  import {competenceAreas} from '../data/competenceAreas.js'
 
   export default {
     props: ['competenceArea', 'competence'],
     computed: {
       nextCompetence: function () {
-        let index = this.getIndex();
+        let index = this.getCompetenceIndex();
         if (index < this.competenceArea.competences.length - 1)
           return this.competenceArea.competences[index + 1];
+        else {
+          let areaIndex = this.getAreaIndex();
+          if (areaIndex < competenceAreas.length-1)
+          {
+            //select the first item from the next competence area
+            return competenceAreas[areaIndex+1].competences[0];
+          }
+
+        }
         return null;
       },
       previousCompetence: function () {
-        let index = this.getIndex();
+        let index = this.getCompetenceIndex();
         if (index !== 0)
           return this.competenceArea.competences[index - 1];
-
+        else{
+            let areaIndex = this.getAreaIndex();
+            if (areaIndex>0) //select the last competence from the previous competence area
+                return  _.last(competenceAreas[areaIndex-1].competences);
+        }
         return null;
       }
     },
     methods: {
-      getIndex(){
+      getAreaIndex(){
+        let areaIndex = _.findIndex(competenceAreas, a => a.id === this.competenceArea.id);
+        return areaIndex;
+      },
+      getCompetenceIndex(){
         let index = _.findIndex(this.competenceArea.competences, c => c.id === this.competence.id);
         return index;
       },

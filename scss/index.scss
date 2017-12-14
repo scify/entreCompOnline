@@ -1,8 +1,19 @@
-@import "common";
+@import "config/colors";
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+$brand-primary: $blue;
+$link-color: darken($crimson, 10%);
+$font-family-sans-serif:  Roboto, sans-serif;
+$body-bg: white;
 
-body{
-  font-family:Roboto;
-}
+$navbar-default-link-color:black;
+$navbar-height:70px;
+$navbar-default-bg:transparent;
+$navbar-default-border:transparent;
+
+$font-size-base:16px;
+
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
 .navbar{
   margin-bottom:0;
 }
@@ -17,13 +28,7 @@ body{
 #intro{
   .section {padding-bottom:15px;}
   h1 {margin-top:0;}
-
-  height:200px;
+  height:500px;
   background-color:gray;
-
-
 }
 
-#how-to{
-
-}

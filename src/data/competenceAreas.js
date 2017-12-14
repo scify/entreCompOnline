@@ -11,7 +11,7 @@ const competenceArea1 =new CompetenceArea(
     new Competence(
       1,
       "Spotting opportunities",
-      "Use your 5 imagination and abilities to identify opportunities for creating value",
+      "Use your imagination and abilities to identify opportunities for creating value",
       [
         "Identify and seize opportunities to create value by exploring the social, cultural and economic landscape",
         "Identify needs and challenges that need to be met",
@@ -128,7 +128,7 @@ const competenceArea2 =new CompetenceArea(2,
 )
 
 const competenceArea3 =new CompetenceArea(3,
-  "Intro action",
+  "Into action",
   [
     new Competence(
       11,
