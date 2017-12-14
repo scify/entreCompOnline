@@ -97,6 +97,7 @@
       {
         this.menuIsOpened = !this.menuIsOpened;
         eventBus.$emit('toggle-menu');
+        circlesChart.resize()
       }
     },
     mounted(){
@@ -117,9 +118,11 @@
       this.competenceArea = urlInfo.competenceArea;
 
       eventBus.$on("competence-changed", (comp) => {
+        try {
           this.competence = comp;
           this.competenceArea = this.findCompetenceAreaByCompetence(comp);
           circlesChart.select(comp.id, 'competence'); // select only competences and not areas
+        }catch(e){}
         }
       );
     }

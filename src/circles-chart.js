@@ -1,3 +1,4 @@
+/*eslint no-unused-vars: "off"*/
 import {competenceAreas} from './data/competenceAreas.js'
 import '../lib/circles-chart/carrotsearch.circles.js'
 import styles from '../scss/config/colors.scss'
@@ -7,6 +8,7 @@ export default class CirclesChart {
     this.container = container
     this.chart = null
   }
+
   drawChart() {
     // initialize chart
     this.chart = new window.CarrotSearchCircles({
@@ -43,16 +45,37 @@ export default class CirclesChart {
     // event handlers
     window.addEventListener("resize", function() {
       // on window resize, resize circles chart as well
-      this.chart.resize()
+      this.resize()
     })
   }
 
+  resize() {
+    this.chart.resize()
+  }
+
   select(id, type) {
-    // console.log(`${id} is selected`)
+    let selectedId = type + '_' + id
     this.chart.set('selection', {all: true, selected: false})
-    this.chart.set('selection', type + '_' + id)
+    this.chart.set('selection', selectedId)
+    try {
+      this._grayScaleNonSelectedDataObjectItems(selectedId)
+    } catch(e) {
+      console.error('Super awesome error: ',e)
+    }
+  }
+
+  _grayScaleNonSelectedDataObjectItems(selectedId) {
+    let dataObject = this.chart.get('dataObject')
+    for (let i = 0; i < dataObject.groups.length; i++) { // competence areas
+      dataObject.groups[i].gcolor = getRGBAString(dataObject.groups[i].gcolor, (dataObject.groups[i].id !== selectedId) ? 0.1 : 1)
+      for (let j = 0; j < dataObject.groups[i].groups.length; j++) { // competences
+        dataObject.groups[i].groups[j].gcolor = getRGBAString(dataObject.groups[i].groups[j].gcolor, (dataObject.groups[i].groups[j].id !== selectedId) ? 0.1 : 1)
+      }
+    }
+    this.chart.set('dataObject', dataObject)
   }
 }
+
 // configuration constant variables
 //const alphas = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7]
 const colorsForAreas = [styles.ideasAndOpportunitiesColor, styles.resourcesColor, styles.introActionColor]
@@ -76,7 +99,7 @@ function getRGBAString(hex, alpha) {
 
 function customColorDecorator(opts, props, vars) {
   vars.groupColor = getRGBAString(props.group.gcolor, (props.level === 0) ? 0.8 : 1);
-  vars.labelColor = "#fff";//styles.chartFontColor
+  vars.labelColor = styles.chartFontColor
 }
 
 function formatCompetenciesToGroups() {
