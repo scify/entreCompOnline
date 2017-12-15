@@ -24,7 +24,8 @@ export default class CirclesChart {
       radialTextureStep: 50,
       angularTextureStep: 15,
       groupFontFamily: 'sans-serif',
-      rolloutAnimation: 'tumble',
+      rolloutTime: 0,
+      pullbackTime: 0,
       visibleGroupCount: 0, // display all groups
       titleBar: 'inscribed',
       titleBarTextColor: "#000",
