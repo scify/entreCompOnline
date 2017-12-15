@@ -49,13 +49,18 @@ $font-size-base: 16px;
 
 #intro {
   .section {
+    padding-top: 200px;
     padding-bottom: 15px;
   }
   h1 {
     margin-top: 0;
   }
-  height: 500px;
+  height: 750px;
+  color: #fff;
   background-color: gray;
+  background-image: url('../src/assets/background_cover_no_bright.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #roadmap {
