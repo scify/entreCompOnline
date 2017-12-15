@@ -48,19 +48,26 @@ $font-size-base: 16px;
 }
 
 #intro {
+  height: 550px;
+  color: #fff;
+  background-color: gray;
+  background-image: url('../src/assets/background_cover_no_bright.jpg');
+  background-repeat: no-repeat;
+  background-position:center -190px;
+  background-size: cover;
+
   .section {
-    padding-top: 200px;
+    padding-top: 125px;
     padding-bottom: 15px;
   }
   h1 {
     margin-top: 0;
   }
-  height: 750px;
-  color: #fff;
-  background-color: gray;
-  background-image: url('../src/assets/background_cover_no_bright.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+  blockquote{
+    margin-top:20px;
+    font-size:23px;
+  }
+
 }
 
 #roadmap {
