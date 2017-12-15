@@ -51,9 +51,14 @@ $font-size-base: 16px;
   height: 550px;
   color: #fff;
   background-color: gray;
-  background-image: url('../src/assets/background_cover_no_bright.jpg');
+
+  background-image: url('../src/assets/background_cover2.jpg');
+
   background-repeat: no-repeat;
-  background-position:center -190px;
+  @media (min-width:1200px)
+  {
+    background-position:center -190px;
+  }
   background-size: cover;
 
   .section {
