@@ -29,7 +29,7 @@ $font-size-base: 16px;
   }
   .subtitle {
     margin-bottom: 70px;
-    font-size:18px;
+    font-size: 18px;
   }
   h3.with-subtitle {
     margin-bottom: 20px;
@@ -38,8 +38,8 @@ $font-size-base: 16px;
 
 #how-to {
   background-color: lighten($blue, 62%);
-  .section{
-    padding-bottom:110px;
+  .section {
+    padding-bottom: 110px;
   }
 }
 
@@ -49,15 +49,14 @@ $font-size-base: 16px;
 
 #intro {
   height: 550px;
+
   color: #fff;
   background-color: gray;
-
   background-image: url('../src/assets/background_cover2.jpg');
 
   background-repeat: no-repeat;
-  @media (min-width:1200px)
-  {
-    background-position:center -190px;
+  @media (min-width: 1200px) {
+    background-position: center -190px;
   }
   background-size: cover;
 
@@ -68,9 +67,24 @@ $font-size-base: 16px;
   h1 {
     margin-top: 0;
   }
-  blockquote{
-    margin-top:20px;
-    font-size:23px;
+  blockquote {
+    margin-top: 20px;
+    font-size: 23px;
+
+  }
+
+  @media (max-width: 900px) {
+    height: 330px;
+    background-image: url('../src/assets/background_cover4.jpg');
+    .section {
+      padding-top: 50px;
+    }
+    h1 {
+      font-size: 25px;
+    }
+    blockquote {
+      font-size: 18px;
+    }
   }
 
 }
