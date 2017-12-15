@@ -1,4 +1,3 @@
-/*eslint no-unused-vars: "off"*/
 import {competenceAreas} from './data/competenceAreas.js'
 import '../lib/circles-chart/carrotsearch.circles.js'
 import styles from '../scss/config/colors.scss'
@@ -45,33 +44,36 @@ export default class CirclesChart {
     // event handlers
     window.addEventListener("resize", function() {
       // on window resize, resize circles chart as well
-      this.resize()
+      this.resizeChart()
     })
   }
 
-  resize() {
+  resizeChart() {
     this.chart.resize()
   }
 
   select(id, type) {
     let selectedId = type + '_' + id
+    this._grayScaleNonSelectedDataObjectItems(selectedId)
     this.chart.set('selection', {all: true, selected: false})
     this.chart.set('selection', selectedId)
-    try {
-      this._grayScaleNonSelectedDataObjectItems(selectedId)
-    } catch(e) {
-      console.error('Super awesome error: ',e)
-    }
   }
 
   _grayScaleNonSelectedDataObjectItems(selectedId) {
     let dataObject = this.chart.get('dataObject')
     for (let i = 0; i < dataObject.groups.length; i++) { // competence areas
-      dataObject.groups[i].gcolor = getRGBAString(dataObject.groups[i].gcolor, (dataObject.groups[i].id !== selectedId) ? 0.1 : 1)
+      let newAreaAlpha = (dataObject.groups[i].id !== selectedId) ? 0.5 : 1
+      dataObject.groups[i].gcolor = (isAlreadyRGBAString(dataObject.groups[i].gcolor)) ?
+        changeAlpha(dataObject.groups[i].gcolor, newAreaAlpha) :
+          getRGBAString(dataObject.groups[i].gcolor, newAreaAlpha)
       for (let j = 0; j < dataObject.groups[i].groups.length; j++) { // competences
-        dataObject.groups[i].groups[j].gcolor = getRGBAString(dataObject.groups[i].groups[j].gcolor, (dataObject.groups[i].groups[j].id !== selectedId) ? 0.1 : 1)
+        let newCompetenceAlpha = (dataObject.groups[i].groups[j].id !== selectedId) ? 0.1 : 1
+        dataObject.groups[i].groups[j].gcolor = (isAlreadyRGBAString(dataObject.groups[i].groups[j].gcolor)) ?
+          changeAlpha(dataObject.groups[i].groups[j].gcolor, newCompetenceAlpha) :
+            getRGBAString(dataObject.groups[i].groups[j].gcolor, newCompetenceAlpha)
       }
     }
+    this.chart.set('dataObject', [])
     this.chart.set('dataObject', dataObject)
   }
 }
@@ -97,8 +99,21 @@ function getRGBAString(hex, alpha) {
   return `rgba(${red}, ${green}, ${blue}, ${alpha})`
 }
 
+function changeAlpha(rgbaString, newAlpha) {
+  let colorStrippedDownToNumbers = rgbaString.replace('rgba(', '')
+  colorStrippedDownToNumbers = colorStrippedDownToNumbers.replace(')', '')
+  let splitResult = colorStrippedDownToNumbers.split(',')
+  return `rgba(${splitResult[0]},${splitResult[1]},${splitResult[2]}, ${newAlpha})`
+}
+
+function isAlreadyRGBAString(color) {
+  return color.indexOf('rgba') !== -1;
+}
+
 function customColorDecorator(opts, props, vars) {
-  vars.groupColor = getRGBAString(props.group.gcolor, (props.level === 0) ? 0.8 : 1);
+  vars.groupColor = (isAlreadyRGBAString(props.group.gcolor)) ?
+    props.group.gcolor :
+      getRGBAString(props.group.gcolor, (props.level === 0) ? 0.8 : 1)
   vars.labelColor = styles.chartFontColor
 }
 
