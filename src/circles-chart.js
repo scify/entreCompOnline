@@ -43,10 +43,9 @@ export default class CirclesChart {
     })
 
     // event handlers
-    window.addEventListener("resize", function() {
-      // on window resize, resize circles chart as well
-      this.resizeChart()
-    })
+    window.addEventListener("resize", () =>
+      this.resizeChart()  // on window resize, resize circles chart as well
+    )
   }
 
   resizeChart() {
