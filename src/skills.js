@@ -12,6 +12,17 @@ function initMenu() {
   eventBus.$on("toggle-menu",function(){
     drawer.open = !drawer.open;
   })
+
+  drawerEl.addEventListener('MDCPersistentDrawer:open', function() {
+    console.log('MDCPersistentDrawer:open');
+    eventBus.$emit('MDCPersistentDrawer:open');
+  });
+  drawerEl.addEventListener('MDCPersistentDrawer:close', function() {
+    console.log('MDCPersistentDrawer:close');
+    eventBus.$emit('MDCPersistentDrawer:close');
+  });
+
+
 }
 
 initMenu();
@@ -27,4 +38,5 @@ new Vue({
   el: '#competences-nav',
   render: h => h(CompentencesMenu)
 })
+
 

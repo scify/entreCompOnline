@@ -55,6 +55,8 @@
 <style lang="scss" scoped>
   @import "../../scss/config/colors";
 
+
+
   .mdc-list-group__subheader {
     padding: 0 16px;
     color: gray;

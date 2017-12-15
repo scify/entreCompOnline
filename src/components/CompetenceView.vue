@@ -7,9 +7,9 @@
           <span class="mdc-toolbar__title catalog-title">{{competence.name}}</span>
         </section>
 
-    <!--    <section class="mdc-toolbar__section mdc-toolbar__section&#45;&#45;align-end" role="toolbar">
-          <a href="/index.html" class="material-icons mdc-toolbar__icon" aria-label="Home" alt="Home">home</a>
-        </section>-->
+        <!--    <section class="mdc-toolbar__section mdc-toolbar__section&#45;&#45;align-end" role="toolbar">
+              <a href="/index.html" class="material-icons mdc-toolbar__icon" aria-label="Home" alt="Home">home</a>
+            </section>-->
 
 
       </div>
@@ -31,9 +31,11 @@
             <div style="color:#757575;" class="mdc-typography--body1">
               Mastering these skills gives you the ability to:<br>
               <div v-for="(descr,index) in competence.descriptors"
-                   class="mdc-typography--body1"> {{index + 1}}) {{descr}}</div>
+                   class="mdc-typography--body1"> {{index + 1}}) {{descr}}
+
+              </div>
             </div>
-            <a id="assess-tool" href="javascript:void(0)" class="mdc-button mdc-button--unelevated mdc-ripple-upgraded" >
+            <a id="assess-tool" href="javascript:void(0)" class="mdc-button mdc-button--unelevated mdc-ripple-upgraded">
               Assess yourself
              </a>
           </div>
@@ -54,11 +56,15 @@
           </header>
           <section id="mdc-dialog-default-description" class="mdc-dialog__body">
             Thanks for your patience.
+
+
           </section>
           <footer class="mdc-dialog__footer">
             <button type="button"
                     class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel mdc-ripple-upgraded"
                     style="--mdc-ripple-fg-size:53.03999633789062px; --mdc-ripple-fg-scale:1.9881081289759257;">Close
+
+
             </button>
           </footer>
         </div>
@@ -95,7 +101,6 @@
     methods: {
       clickMenu()
       {
-        this.menuIsOpened = !this.menuIsOpened;
         eventBus.$emit('toggle-menu');
         circlesChart.resizeChart()
       }
@@ -117,6 +122,14 @@
       this.competence = urlInfo.competence;
       this.competenceArea = urlInfo.competenceArea;
 
+      eventBus.$on("MDCPersistentDrawer:open", () => {
+        this.menuIsOpened = true;
+      });
+      eventBus.$on("MDCPersistentDrawer:close", () => {
+        this.menuIsOpened = false;
+      });
+
+
       eventBus.$on("competence-changed", (comp) => {
         this.competence = comp;
         this.competenceArea = this.findCompetenceAreaByCompetence(comp);
@@ -129,15 +142,18 @@
 <style lang="scss" scoped>
   @import "../../scss/config/colors";
 
-  .skills-container{
-    padding:0;
+  .skills-container {
+    padding: 0;
   }
+
   #assess-tool {
-    margin-top:40px;
+    margin-top: 40px;
   }
-  .mdc-toolbar__row {
+  .mdc-toolbar, .mdc-toolbar__row {
     min-height: 56px;
   }
+
+
 
   .skills {
     border-left: 5px solid;

@@ -16,6 +16,7 @@ html {
   width: 100%;
 }
 
+$menu-width:350px;
 /* Stack toolbar and main on top of each other. */
 #competence-breakdown {
   display: inline-flex;
@@ -23,6 +24,10 @@ html {
   flex-grow: 1;
   height: 100%;
   box-sizing: border-box;
+
+  &.open{
+    padding-left:$menu-width;
+  }
 }
 
 .competence-main {
@@ -31,17 +36,30 @@ html {
   width: 100%;
   box-sizing: border-box;
 }
+@media (min-width: 600px) {
+  .mdc-persistent-drawer__toolbar-spacer {
+    height: 56px;
+  }
+}
+
+.mdc-persistent-drawer
+{
+  position:fixed;
+  height:100%;
+}
 .mdc-persistent-drawer a
 {
   text-decoration: none;
 }
 
 .mdc-persistent-drawer--open, .mdc-persistent-drawer__drawer {
-  min-width: 350px;
-
+  min-width: $menu-width;
+}
+.mdc-persistent-drawer__drawer{
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
 
 .competences-nav {
   min-height: 100vh; //100% of the height of the viewport
