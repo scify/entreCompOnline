@@ -6,6 +6,7 @@ export default class CirclesChart {
   constructor(container) {
     this.container = container
     this.chart = null
+    this.oldDataObject = null
   }
 
   drawChart() {
@@ -43,13 +44,23 @@ export default class CirclesChart {
     })
 
     // event handlers
-    window.addEventListener("resize", () =>
-      this.resizeChart()  // on window resize, resize circles chart as well
-    )
+    window.addEventListener("resize", () => {
+      this.resizeChart()
+    })
   }
 
   resizeChart() {
-    this.chart.resize()
+    // when container of the chart is narrow, keep old data and do not display chart
+    if (document.getElementById(this.container).offsetWidth <= 380) {
+      this.oldDataObject = this.oldDataObject || this.chart.get('dataObject')
+      this.chart.set('dataObject', null)
+    } else { // else, reset data if needed and then resize chart
+      if (this.chart.get('dataObject') == null && this.oldDataObject != null) {
+        this.chart.set('dataObject', this.oldDataObject)
+        this.oldDataObject = null
+      }
+      this.chart.resize() // on window resize, resize circles chart as well
+    }
   }
 
   select(id, type) {
@@ -58,21 +69,26 @@ export default class CirclesChart {
     this.chart.set('selection', {all: true, selected: false})
     this.chart.set('selection', selectedId)
     window.location.href = "#competence=" + selectedId;
+    this.resizeChart()
   }
 
   _grayScaleNonSelectedDataObjectItems(selectedId) {
     let dataObject = this.chart.get('dataObject')
     for (let i = 0; i < dataObject.groups.length; i++) { // competence areas
-      let newAreaAlpha = (dataObject.groups[i].id !== selectedId) ? 0.5 : 1
-      dataObject.groups[i].gcolor = (isAlreadyRGBAString(dataObject.groups[i].gcolor)) ?
-        changeAlpha(dataObject.groups[i].gcolor, newAreaAlpha) :
-          getRGBAString(dataObject.groups[i].gcolor, newAreaAlpha)
+      let foundSelectedIdInThisArea = false
       for (let j = 0; j < dataObject.groups[i].groups.length; j++) { // competences
-        let newCompetenceAlpha = (dataObject.groups[i].groups[j].id !== selectedId) ? 0.1 : 1
+        let isSelectedItem = dataObject.groups[i].groups[j].id === selectedId
+        if (isSelectedItem)
+          foundSelectedIdInThisArea = true
+        let newCompetenceAlpha = (isSelectedItem) ? 1 : 0.1
         dataObject.groups[i].groups[j].gcolor = (isAlreadyRGBAString(dataObject.groups[i].groups[j].gcolor)) ?
           changeAlpha(dataObject.groups[i].groups[j].gcolor, newCompetenceAlpha) :
             getRGBAString(dataObject.groups[i].groups[j].gcolor, newCompetenceAlpha)
       }
+      let newAreaAlpha = (foundSelectedIdInThisArea) ? 0.6 : 0.2
+      dataObject.groups[i].gcolor = (isAlreadyRGBAString(dataObject.groups[i].gcolor)) ?
+        changeAlpha(dataObject.groups[i].gcolor, newAreaAlpha) :
+        getRGBAString(dataObject.groups[i].gcolor, newAreaAlpha)
     }
     this.chart.set('dataObject', [])
     this.chart.set('dataObject', dataObject)
@@ -80,7 +96,6 @@ export default class CirclesChart {
 }
 
 // configuration constant variables
-//const alphas = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7]
 const colorsForAreas = [styles.ideasAndOpportunitiesColor, styles.resourcesColor, styles.introActionColor]
 const groupSelectionOutlineColor = '#30415d' // $blue
 const groupSelectionColor = getRGBAString('#000000', 0.15)

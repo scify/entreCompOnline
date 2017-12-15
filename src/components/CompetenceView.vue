@@ -102,7 +102,6 @@
       clickMenu()
       {
         eventBus.$emit('toggle-menu');
-        circlesChart.resizeChart()
       }
     },
     mounted(){
@@ -124,12 +123,16 @@
 
       eventBus.$on("MDCPersistentDrawer:open", () => {
         this.menuIsOpened = true;
+        setTimeout(function() {
+          circlesChart.resizeChart()
+        }, 50)
       });
       eventBus.$on("MDCPersistentDrawer:close", () => {
         this.menuIsOpened = false;
+        setTimeout(function() {
+          circlesChart.resizeChart()
+        }, 50)
       });
-
-
       eventBus.$on("competence-changed", (comp) => {
         this.competence = comp;
         this.competenceArea = this.findCompetenceAreaByCompetence(comp);
