@@ -58,6 +58,7 @@ export default class CirclesChart {
     this._grayScaleNonSelectedDataObjectItems(selectedId)
     this.chart.set('selection', {all: true, selected: false})
     this.chart.set('selection', selectedId)
+    window.location.href = "#competence=" + selectedId;
   }
 
   _grayScaleNonSelectedDataObjectItems(selectedId) {
