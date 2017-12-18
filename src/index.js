@@ -13,6 +13,7 @@ new Vue({
 
 let circlesChart = new CirclesChart('chart')
 circlesChart.drawChart()
+circlesChart.resizeChart()
 
 const scrollToArea = function () {
   let target = $($(this).attr('href'));

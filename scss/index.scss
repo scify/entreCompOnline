@@ -30,6 +30,9 @@ $font-size-base: 16px;
   .subtitle {
     margin-bottom: 70px;
     font-size: 18px;
+    @media (max-width: 860px) {
+      margin-bottom: 0;
+    }
   }
   h3.with-subtitle {
     margin-bottom: 20px;
@@ -40,6 +43,9 @@ $font-size-base: 16px;
   background-color: lighten($blue, 62%);
   .section {
     padding-bottom: 110px;
+    @media (max-width: 860px) {
+      padding-bottom: 50px;
+    }
   }
 }
 
@@ -87,6 +93,13 @@ $font-size-base: 16px;
     }
   }
 
+
+  @media (max-width: 400px) {
+    height: 460px;
+    blockquote {
+      margin-top: 30px;
+    }
+  }
 }
 
 #roadmap {

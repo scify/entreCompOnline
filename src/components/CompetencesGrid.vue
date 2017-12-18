@@ -116,6 +116,8 @@
     border-radius: 5px;
     color: white;
     text-decoration: none;
+    display: inline-block;
+    margin-bottom: 5px;
   }
 
   .comp-area-all {
