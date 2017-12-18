@@ -102,6 +102,18 @@
       clickMenu()
       {
         eventBus.$emit('toggle-menu');
+      },
+      windowResized()
+      {
+        // hide menu for window less than 1050 pixels and display it again
+        // on window resize when window is more than 1050 pixels
+        if (window.innerWidth > 1050) {
+          if (!this.menuIsOpened)
+            eventBus.$emit('toggle-menu')
+        } else {
+          if (this.menuIsOpened)
+            eventBus.$emit('toggle-menu')
+        }
       }
     },
     mounted(){
@@ -114,6 +126,10 @@
         dialog.lastFocusedTarget = evt.target;
         dialog.show();
       });
+
+      window.addEventListener('resize', this.windowResized)
+
+      this.windowResized()
     },
     created()
     {
@@ -138,6 +154,10 @@
         this.competenceArea = this.findCompetenceAreaByCompetence(comp);
         circlesChart.select(comp.id, 'competence'); // select only competences and not areas
       });
+    },
+    beforeDestroy()
+    {
+      window.removeEventListener('resize', this.windowResized)
     }
   }
 </script>

@@ -51,11 +51,13 @@ export default class CirclesChart {
 
   resizeChart() {
     // when container of the chart is narrow, keep old data and do not display chart
-    if (document.getElementById(this.container).offsetWidth <= 380) {
+    if (window.innerWidth <= 860) {
+      document.getElementById(this.container).style.display = 'none'
       this.oldDataObject = this.oldDataObject || this.chart.get('dataObject')
       this.chart.set('dataObject', null)
     } else { // else, reset data if needed and then resize chart
       if (this.chart.get('dataObject') == null && this.oldDataObject != null) {
+        document.getElementById(this.container).style.display = 'block'
         this.chart.set('dataObject', this.oldDataObject)
         this.oldDataObject = null
       }
