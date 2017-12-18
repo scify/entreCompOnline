@@ -17,6 +17,7 @@ html {
 }
 
 $menu-width:350px;
+$menu-width-for-smaller-screens: 250px;
 /* Stack toolbar and main on top of each other. */
 #competence-breakdown {
   display: inline-flex;
@@ -27,6 +28,12 @@ $menu-width:350px;
 
   &.open{
     padding-left:$menu-width;
+    & > * {
+      border-left: 1px solid rgba(0, 0, 0, 0.12);
+    }
+    @media (max-width: 600px) {
+      padding-left:$menu-width-for-smaller-screens;
+    }
   }
 }
 
@@ -44,8 +51,10 @@ $menu-width:350px;
 
 .mdc-persistent-drawer
 {
-  position:fixed;
-  height:100%;
+  position:absolute;
+  top: 0;
+  left: 0;
+  bottom: 4px;
 }
 .mdc-persistent-drawer a
 {
@@ -54,10 +63,14 @@ $menu-width:350px;
 
 .mdc-persistent-drawer--open, .mdc-persistent-drawer__drawer {
   min-width: $menu-width;
+  @media (max-width: 600px) {
+    min-width:$menu-width-for-smaller-screens;
+  }
 }
 .mdc-persistent-drawer__drawer{
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
+  border-right: none;
 }
 
 
