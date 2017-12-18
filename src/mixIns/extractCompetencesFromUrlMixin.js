@@ -6,7 +6,12 @@ export default {
     findCompetenceFromUrl(){
       let competence = null;
       let competenceArea = null;
-      let competenceId = parseInt(new URLSearchParams(window.location.hash).get("#competence").replace('competence_', ''));
+      let competenceId = null;
+      try {
+        competenceId = parseInt(new URLSearchParams(window.location.hash).get("#competence").replace('competence_', ''));
+      } catch(e) {
+        competenceId = 1; // default value is the first competence
+      }
 
       if (competenceId) {
         for (let area  of competenceAreas) {
