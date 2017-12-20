@@ -52,6 +52,8 @@ $menu-width-for-smaller-screens: 250px;
 
 .mdc-persistent-drawer--open, .mdc-persistent-drawer__drawer {
   min-width: $menu-width;
+  border-right:0;
+  height:99.5%;
   @media (max-width: 600px) {
     min-width:$menu-width-for-smaller-screens;
   }
