@@ -27,12 +27,8 @@ $menu-width-for-smaller-screens: 250px;
   box-sizing: border-box;
 
   &.open{
-    padding-left:$menu-width;
     & > * {
       border-left: 1px solid rgba(0, 0, 0, 0.12);
-    }
-    @media (max-width: 600px) {
-      padding-left:$menu-width-for-smaller-screens;
     }
   }
 }
@@ -49,13 +45,6 @@ $menu-width-for-smaller-screens: 250px;
   }
 }
 
-.mdc-persistent-drawer
-{
-  position:absolute;
-  top: 0;
-  left: 0;
-  bottom: 4px;
-}
 .mdc-persistent-drawer a
 {
   text-decoration: none;
@@ -67,12 +56,6 @@ $menu-width-for-smaller-screens: 250px;
     min-width:$menu-width-for-smaller-screens;
   }
 }
-.mdc-persistent-drawer__drawer{
-  overflow-y: scroll;
-  overflow-x: hidden;
-  border-right: none;
-}
-
 
 .competences-nav {
   min-height: 100vh; //100% of the height of the viewport

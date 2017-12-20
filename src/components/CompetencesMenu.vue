@@ -56,7 +56,9 @@
   @import "../../scss/config/colors";
 
 
-
+  .mdc-list-group {
+    overflow-y: scroll;
+  }
   .mdc-list-group__subheader {
     padding: 0 16px;
     color: gray;
