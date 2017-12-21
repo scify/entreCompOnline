@@ -27,3 +27,7 @@ npm run dev
 npm run build
 ```
 
+## Related technologies
+[Vue.js](https://vuejs.org/)
+[Webpack](https://webpack.js.org/)
+
